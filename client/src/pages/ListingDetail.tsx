@@ -76,7 +76,7 @@ export default function ListingDetail() {
   return (
     <>
       <SEO
-        title={`${listing.name} - Namibia Tourism`}
+        title={`${listing.name} - Windhoek Tourism`}
         description={listing.shortDescription || listing.description || ""}
         type="place"
       />

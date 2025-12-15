@@ -49,7 +49,7 @@ const itemTypeColors = {
 };
 
 export default function PlanTrip() {
-  const [tripName, setTripName] = useState("My Namibia Adventure");
+  const [tripName, setTripName] = useState("My Windhoek Adventure");
   const [startDate, setStartDate] = useState("");
   const [days, setDays] = useState<TripDay[]>([
     { id: "1", dayNumber: 1, title: "Arrival in Windhoek", region: "Khomas", items: [] },
@@ -123,8 +123,8 @@ export default function PlanTrip() {
   return (
     <>
       <SEO 
-        title="Plan Your Trip | Namibia"
-        description="Create your perfect Namibia itinerary with our trip planner. Add accommodations, activities, and attractions to build your dream safari adventure."
+        title="Plan Your Trip | Windhoek"
+        description="Create your perfect Windhoek itinerary with our trip planner. Add accommodations, activities, and attractions to build your dream city adventure."
       />
 
       <div className="min-h-screen pb-24 md:pb-0">
@@ -145,7 +145,7 @@ export default function PlanTrip() {
                 Plan Your <span className="font-normal text-primary">Adventure</span>
               </h1>
               <p className="text-muted-foreground text-lg mb-8">
-                Create a day-by-day itinerary for your Namibia journey
+                Create a day-by-day itinerary for your Windhoek journey
               </p>
 
               {/* Trip Info */}

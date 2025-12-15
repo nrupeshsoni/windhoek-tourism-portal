@@ -50,8 +50,8 @@ export default function Categories() {
   return (
     <>
       <SEO
-        title="Categories - Explore Namibia's Tourism Services"
-        description="Browse all tourism categories in Namibia including tour operators, lodges, campsites, safari experiences, and more."
+        title="Categories - Explore Windhoek's Tourism Services"
+        description="Browse all tourism categories in Windhoek including hotels, restaurants, tours, attractions, and more."
       />
 
       <div className="min-h-screen pb-24 md:pb-12">
@@ -61,7 +61,7 @@ export default function Categories() {
           <div className="absolute inset-0">
             <img
               src="/images/hero-wildlife.jpg"
-              alt="Namibia Wildlife"
+              alt="Windhoek City"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
@@ -85,7 +85,7 @@ export default function Categories() {
               </h1>
               <p className="text-white/80 text-lg max-w-xl">
                 From luxury lodges to adventure tours, find exactly what you're
-                looking for in Namibia.
+                looking for in Windhoek.
               </p>
             </motion.div>
           </div>

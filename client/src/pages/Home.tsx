@@ -49,7 +49,7 @@ const ICONIC_DESTINATIONS = [
     name: "Craft Centre", 
     tagline: "SHOP AT", 
     image: "/images/windhoek/craft-centre.jpg",
-    description: "Namibia's largest collection of authentic African arts, crafts, and souvenirs."
+    description: "Windhoek's largest collection of authentic African arts, crafts, and souvenirs."
   },
   { 
     id: 5, 
@@ -159,7 +159,7 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="Windhoek - Discover Namibia's Capital City"
+        title="Windhoek - Discover the Capital City"
         description="Explore Windhoek's rich history, vibrant culture, and stunning attractions. Plan your perfect city experience with curated tours, restaurants, and more."
       />
 
@@ -582,7 +582,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h3 className="font-display text-3xl text-white tracking-[0.3em] mb-4">WINDHOEK</h3>
-            <p className="text-white/50">Namibia's Capital City</p>
+            <p className="text-white/50">Capital of Namibia</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">

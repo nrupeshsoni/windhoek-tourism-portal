@@ -11,13 +11,13 @@ import SEO from "@/components/SEO";
 const DURATION_OPTIONS = [
   { value: 1, label: "1 Day" },
   { value: 2, label: "2 Days" },
-  { value: 3, label: "3 Days" },
-  { value: 5, label: "5 Days" },
-  { value: 7, label: "7 Days" },
-  { value: 10, label: "10 Days" },
-  { value: 14, label: "14 Days" },
-  { value: 21, label: "21 Days" },
-  { value: 30, label: "30 Days" },
+  
+  
+  
+  
+  
+  
+  
 ];
 
 const DIFFICULTY_COLORS: Record<string, string> = {
@@ -117,8 +117,8 @@ export default function Routes() {
   return (
     <>
       <SEO 
-        title="Travel Routes & Itineraries | Namibia"
-        description="Discover 70+ curated travel routes across Namibia. From 1-day excursions to 30-day expeditions, find the perfect itinerary for your adventure."
+        title="City Tours Travel Routes & Itineraries | Namibia Day Trips | Windhoek"
+        description="Discover curated city tours and day trips in Windhoek. From walking tours to wildlife day trips, find the perfect Windhoek experience."
       />
 
       <div className="min-h-screen pb-24 md:pb-0">
@@ -137,12 +137,12 @@ export default function Routes() {
                 {allRoutes?.length || 0} Curated Itineraries
               </span>
               <h1 className="text-3xl md:text-6xl font-display font-light mb-2 md:mb-4 text-white">
-                Travel <span className="font-normal text-primary">Routes</span>
+                City <span className="font-normal text-primary">Tours</span>
               </h1>
               <p className="text-white/80 text-sm md:text-lg mb-4 md:mb-8 hidden md:block">
                 {selectedLocation 
                   ? `Routes starting from ${selectedLocation}`
-                  : "Pre-planned journeys through Namibia's most spectacular destinations"
+                  : "Curated tours through Windhoek's best attractions"
                 }
               </p>
 
@@ -153,7 +153,7 @@ export default function Routes() {
                   <div className="text-xs md:text-sm text-white/60">Routes</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold">1-30</div>
+                  <div className="text-xl md:text-3xl font-bold">1-2</div>
                   <div className="text-xs md:text-sm text-white/60">Days</div>
                 </div>
                 <div className="text-center">

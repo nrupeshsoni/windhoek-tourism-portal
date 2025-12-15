@@ -51,8 +51,8 @@ export default function Explore() {
   return (
     <>
       <SEO
-        title="Explore Namibia - Destinations, Lodges & Experiences"
-        description="Explore all of Namibia's tourism offerings. Find lodges, tour operators, campsites, safari experiences, and more."
+        title="Explore Windhoek - Attractions, Hotels & Experiences"
+        description="Explore all of Windhoek's tourism offerings. Find hotels, restaurants, tours, attractions, and more."
       />
 
       <div className="min-h-screen pb-24 md:pb-12">
@@ -75,7 +75,7 @@ export default function Explore() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-white/90 text-sm font-medium mb-6">
                 <Compass className="w-4 h-4" />
-                Discover Namibia
+                Discover Windhoek
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
                 Explore{" "}
@@ -84,7 +84,7 @@ export default function Explore() {
                 </span>
               </h1>
               <p className="text-white/80 text-lg max-w-xl">
-                Search through our curated collection of Namibia's finest destinations,
+                Search through our curated collection of Windhoek's finest attractions,
                 accommodations, and experiences.
               </p>
             </motion.div>

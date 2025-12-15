@@ -69,8 +69,8 @@ export default function Regions() {
   return (
     <>
       <SEO
-        title="Explore Namibia's Regions - 14 Unique Destinations"
-        description="Discover Namibia's 14 administrative regions, from the coastal Erongo to the lush Zambezi. Each region offers unique landscapes, wildlife, and cultural experiences."
+        title="Explore Windhoek's Districts & Suburbs"
+        description="Discover Windhoek's diverse districts and suburbs. Each area offers unique character, attractions, and experiences."
       />
 
       <div className="min-h-screen pb-24 md:pb-12">
@@ -79,7 +79,7 @@ export default function Regions() {
           <div className="absolute inset-0">
             <img
               src="/images/hero-canyon.jpg"
-              alt="Namibia Regions"
+              alt="Windhoek Districts"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
@@ -98,7 +98,7 @@ export default function Regions() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
                 Explore{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
-                  Namibia's Regions
+                  Windhoek's Areas
                 </span>
               </h1>
               <p className="text-white/80 text-lg max-w-xl">
