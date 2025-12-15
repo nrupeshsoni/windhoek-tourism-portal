@@ -1,5 +1,6 @@
-import { eq, desc, like, and, sql } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
+import { eq, desc, like, and, sql, or } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import { 
   InsertUser, 
   users, 
@@ -19,11 +20,13 @@ import {
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
+let _client: ReturnType<typeof postgres> | null = null;
 
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      _client = postgres(process.env.DATABASE_URL, { ssl: 'require' });
+      _db = drizzle(_client);
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
@@ -82,7 +85,9 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       updateSet.lastSignedIn = new Date();
     }
 
-    await db.insert(users).values(values).onDuplicateKeyUpdate({
+    // PostgreSQL upsert using ON CONFLICT
+    await db.insert(users).values(values).onConflictDoUpdate({
+      target: users.openId,
       set: updateSet,
     });
   } catch (error) {
@@ -135,8 +140,8 @@ export async function getCategoryBySlug(slug: string) {
 export async function createCategory(category: InsertCategory) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  const result = await db.insert(categories).values(category);
-  return result;
+  const result = await db.insert(categories).values(category).returning();
+  return result[0];
 }
 
 export async function updateCategory(id: number, category: Partial<InsertCategory>) {
@@ -203,9 +208,13 @@ export async function searchListings(query: string, categoryId?: number, region?
   const db = await getDb();
   if (!db) return [];
   
+  const searchPattern = `%${query}%`;
   const conditions = [
     eq(listings.isActive, true),
-    sql`(${listings.name} LIKE ${`%${query}%`} OR ${listings.description} LIKE ${`%${query}%`})`
+    or(
+      sql`${listings.name} ILIKE ${searchPattern}`,
+      sql`${listings.description} ILIKE ${searchPattern}`
+    )
   ];
   
   if (categoryId) {
@@ -223,8 +232,8 @@ export async function searchListings(query: string, categoryId?: number, region?
 export async function createListing(listing: InsertListing) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  const result = await db.insert(listings).values(listing);
-  return result;
+  const result = await db.insert(listings).values(listing).returning();
+  return result[0];
 }
 
 export async function updateListing(id: number, listing: Partial<InsertListing>) {
@@ -293,8 +302,8 @@ export async function getMediaByListing(listingId: number) {
 export async function createMedia(mediaData: InsertMedia) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  const result = await db.insert(media).values(mediaData);
-  return result;
+  const result = await db.insert(media).values(mediaData).returning();
+  return result[0];
 }
 
 export async function updateMedia(id: number, mediaData: Partial<InsertMedia>) {
@@ -355,45 +364,32 @@ export async function setPrimaryMedia(listingId: number, mediaId: number) {
     ));
 }
 
-
 // Routes
-interface RouteFilters {
-  duration?: number;
-  minDuration?: number;
-  maxDuration?: number;
-  difficulty?: "easy" | "moderate" | "challenging";
-  region?: string;
-  featured?: boolean;
+export async function getAllRoutes() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(routes).orderBy(desc(routes.createdAt));
 }
 
-export async function getRoutes(filters: RouteFilters = {}) {
+export async function getActiveRoutes(featured?: boolean) {
   const db = await getDb();
   if (!db) return [];
   
   const conditions = [eq(routes.isActive, true)];
-  
-  if (filters.duration) {
-    conditions.push(eq(routes.duration, filters.duration));
-  }
-  if (filters.minDuration) {
-    conditions.push(sql`${routes.duration} >= ${filters.minDuration}`);
-  }
-  if (filters.maxDuration) {
-    conditions.push(sql`${routes.duration} <= ${filters.maxDuration}`);
-  }
-  if (filters.difficulty) {
-    conditions.push(eq(routes.difficulty, filters.difficulty));
-  }
-  if (filters.featured) {
+  if (featured) {
     conditions.push(eq(routes.isFeatured, true));
-  }
-  if (filters.region) {
-    conditions.push(sql`${routes.regions} LIKE ${`%${filters.region}%`}`);
   }
   
   return await db.select().from(routes)
     .where(and(...conditions))
-    .orderBy(routes.duration, desc(routes.isFeatured), desc(routes.viewCount));
+    .orderBy(desc(routes.isFeatured), desc(routes.createdAt));
+}
+
+export async function getRouteById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(routes).where(eq(routes.id, id)).limit(1);
+  return result[0];
 }
 
 export async function getRouteBySlug(slug: string) {
@@ -403,12 +399,23 @@ export async function getRouteBySlug(slug: string) {
   return result[0];
 }
 
-export async function getRouteStops(routeId: number) {
+export async function createRoute(route: InsertRoute) {
   const db = await getDb();
-  if (!db) return [];
-  return await db.select().from(routeStops)
-    .where(eq(routeStops.routeId, routeId))
-    .orderBy(routeStops.dayNumber, routeStops.stopOrder);
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(routes).values(route).returning();
+  return result[0];
+}
+
+export async function updateRoute(id: number, route: Partial<InsertRoute>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(routes).set(route).where(eq(routes.id, id));
+}
+
+export async function deleteRoute(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(routes).where(eq(routes.id, id));
 }
 
 export async function incrementRouteViews(id: number) {
@@ -419,29 +426,64 @@ export async function incrementRouteViews(id: number) {
     .where(eq(routes.id, id));
 }
 
-export async function getAvailableDurations() {
+// Route Stops
+export async function getRouteStops(routeId: number) {
   const db = await getDb();
   if (!db) return [];
-  
-  const result = await db
-    .selectDistinct({ duration: routes.duration })
-    .from(routes)
-    .where(eq(routes.isActive, true))
-    .orderBy(routes.duration);
-  
-  return result.map(r => r.duration);
-}
-
-export async function createRoute(route: InsertRoute) {
-  const db = await getDb();
-  if (!db) throw new Error("Database not available");
-  const result = await db.insert(routes).values(route);
-  return result;
+  return await db.select().from(routeStops)
+    .where(eq(routeStops.routeId, routeId))
+    .orderBy(routeStops.dayNumber, routeStops.stopOrder);
 }
 
 export async function createRouteStop(stop: InsertRouteStop) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  const result = await db.insert(routeStops).values(stop);
-  return result;
+  const result = await db.insert(routeStops).values(stop).returning();
+  return result[0];
+}
+
+export async function updateRouteStop(id: number, stop: Partial<InsertRouteStop>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(routeStops).set(stop).where(eq(routeStops.id, id));
+}
+
+export async function deleteRouteStop(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(routeStops).where(eq(routeStops.id, id));
+}
+
+// Alias for getRoutes (used by routers.ts)
+export async function getRoutes(filters?: { featured?: boolean; difficulty?: string; duration?: number }) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const conditions = [eq(routes.isActive, true)];
+  if (filters?.featured) {
+    conditions.push(eq(routes.isFeatured, true));
+  }
+  if (filters?.difficulty) {
+    conditions.push(eq(routes.difficulty, filters.difficulty));
+  }
+  if (filters?.duration) {
+    conditions.push(eq(routes.duration, filters.duration));
+  }
+  
+  return await db.select().from(routes)
+    .where(and(...conditions))
+    .orderBy(desc(routes.isFeatured), desc(routes.createdAt));
+}
+
+// Get available durations for filtering
+export async function getAvailableDurations() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const result = await db.selectDistinct({ duration: routes.duration })
+    .from(routes)
+    .where(eq(routes.isActive, true))
+    .orderBy(routes.duration);
+  
+  return result.map(r => r.duration);
 }
