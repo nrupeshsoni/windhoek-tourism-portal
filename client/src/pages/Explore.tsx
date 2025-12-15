@@ -60,8 +60,8 @@ export default function Explore() {
         <section className="relative py-20 md:py-28 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/images/hero-canyon.jpg"
-              alt="Fish River Canyon"
+              src="/images/windhoek/city-aerial.jpeg"
+              alt="Windhoek City Aerial View"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
@@ -133,20 +133,7 @@ export default function Explore() {
                     ))}
                   </SelectContent>
                 </Select>
-                <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                  <SelectTrigger className="w-full md:w-[200px] h-12 rounded-xl border-0 bg-muted/50">
-                    <Globe className="w-4 h-4 mr-2" />
-                    <SelectValue placeholder="All Regions" />
-                  </SelectTrigger>
-                  <SelectContent className="glass-modal rounded-xl border-0 max-h-[300px]">
-                    <SelectItem value="all">All Regions</SelectItem>
-                    {NAMIBIA_REGIONS.map((region) => (
-                      <SelectItem key={region.id} value={region.id}>
-                        {region.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                {/* Regions dropdown removed for city portal */}
               </div>
             </div>
           </motion.div>

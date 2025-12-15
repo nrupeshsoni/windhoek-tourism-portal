@@ -6,6 +6,7 @@ import { ChevronDown, MessageCircle, Map, Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import SEO from "@/components/SEO";
+import AttractionModal from "@/components/AttractionModal";
 
 // Random animation variants for cards
 const cardAnimations: Variants[] = [
@@ -21,91 +22,142 @@ const cardAnimations: Variants[] = [
 
 const getRandomAnimation = (index: number) => cardAnimations[index % cardAnimations.length];
 
-// Windhoek Iconic Destinations/Attractions - 12 top attractions
+// Windhoek Iconic Destinations/Attractions - 12 top attractions with full details
 const ICONIC_DESTINATIONS = [
   { 
     id: 1, 
     name: "Christuskirche", 
     tagline: "HISTORIC", 
     image: "/images/windhoek/christuskirche-museum.jpg",
-    description: "Iconic 1910 Lutheran church in neo-Gothic and Art Nouveau style, built from local sandstone."
+    description: "The Christuskirche (Christ Church) is an iconic Lutheran church built between 1907-1910 in a unique blend of neo-Gothic and Art Nouveau styles. Constructed from local sandstone, it stands as one of Windhoek's most photographed landmarks. The church features beautiful stained glass windows, a distinctive tower, and serves as a symbol of the city's German colonial heritage.",
+    address: "Robert Mugabe Avenue, Windhoek Central",
+    hours: "Mon-Fri 8:00-17:00, Sat 8:00-12:00",
+    phone: "+264 61 236 002",
+    highlights: ["Neo-Gothic architecture", "Stained glass windows", "Historic cemetery", "Photo opportunities", "Free entry"]
   },
   { 
     id: 2, 
     name: "Independence Museum", 
     tagline: "FREE ENTRY", 
     image: "/images/windhoek/independence-museum.jpg",
-    description: "North Korea-built museum with panoramic views and the Balcony of Love rooftop bar."
+    description: "The Independence Memorial Museum is a striking modern building that chronicles Namibia's journey to independence. Built by North Korean architects, it offers panoramic views of Windhoek from its upper floors. The museum houses exhibits on colonial history, the liberation struggle, and Namibian culture. Don't miss the Balcony of Love rooftop bar for sunset drinks.",
+    address: "Robert Mugabe Avenue, Windhoek Central",
+    hours: "Mon-Fri 9:00-17:00, Sat-Sun 10:00-16:00",
+    phone: "+264 61 293 4358",
+    highlights: ["Free admission", "Panoramic city views", "Liberation history exhibits", "Rooftop bar", "Air-conditioned"]
   },
   { 
     id: 3, 
     name: "Heroes' Acre", 
     tagline: "MEMORIAL", 
     image: "/images/windhoek/heroes-acre.jpg",
-    description: "Grand memorial honoring Namibian independence heroes with stunning architecture."
+    description: "Heroes' Acre is a grand national memorial honoring those who fought for Namibian independence. Located 10km south of Windhoek, this impressive site features a massive bronze statue of the Unknown Soldier, an eternal flame, and the graves of national heroes. The architecture is inspired by similar memorials in North Korea and Zimbabwe.",
+    address: "B1 Highway, 10km south of Windhoek",
+    hours: "Daily 8:00-17:00",
+    phone: "+264 61 270 6111",
+    highlights: ["Unknown Soldier statue", "Eternal flame", "Panoramic views", "Museum exhibits", "Guided tours available"]
   },
   { 
     id: 4, 
-    name: "Craft Centre", 
+    name: "Namibia Craft Centre", 
     tagline: "SHOP AT", 
     image: "/images/windhoek/craft-centre.jpg",
-    description: "Windhoek's largest collection of authentic African arts, crafts, and souvenirs."
+    description: "The Namibia Craft Centre is the largest collection of authentic African arts, crafts, and souvenirs in Windhoek. Located in the Old Breweries complex, it features over 40 vendors selling handmade jewelry, textiles, woodcarvings, pottery, and traditional crafts from across Namibia. Perfect for unique gifts and supporting local artisans.",
+    address: "Tal Street, Old Breweries Complex",
+    hours: "Mon-Fri 9:00-17:30, Sat 9:00-13:30",
+    phone: "+264 61 242 222",
+    website: "https://namibiacraftcentre.com",
+    highlights: ["40+ local vendors", "Authentic crafts", "San jewelry", "Herero dolls", "Woodcarvings"]
   },
   { 
     id: 5, 
-    name: "Daan Viljoen", 
+    name: "Daan Viljoen Game Park", 
     tagline: "WILDLIFE", 
     image: "/images/windhoek/daan-viljoen.jpg",
-    description: "Nature reserve 20 min from city with zebra, kudu, oryx and 200+ bird species."
+    description: "Daan Viljoen Game Park is a nature reserve just 20 minutes west of Windhoek, offering an easy escape into the African bush. Home to zebra, kudu, oryx, springbok, and over 200 bird species, it's perfect for game drives, hiking, and picnics. The park also has a restaurant and accommodation options.",
+    address: "C28 Road, 18km west of Windhoek",
+    hours: "Sunrise to Sunset",
+    phone: "+264 61 232 393",
+    highlights: ["Game drives", "Hiking trails", "200+ bird species", "Swimming pool", "Restaurant"]
   },
   { 
     id: 6, 
     name: "Joe's Beerhouse", 
     tagline: "LEGENDARY", 
     image: "/images/windhoek/joes-beerhouse.jpg",
-    description: "Famous restaurant for game meat steaks in eclectic African-German atmosphere."
+    description: "Joe's Beerhouse is Windhoek's most famous restaurant, known for its eclectic African-German atmosphere and legendary game meat steaks. The quirky decor includes antiques, animal skulls, and vintage memorabilia. Try the oryx steak, crocodile, or zebra while enjoying live music and ice-cold Windhoek Lager.",
+    address: "160 Nelson Mandela Avenue",
+    hours: "Mon-Sat 11:00-23:00, Sun 11:00-22:00",
+    phone: "+264 61 232 457",
+    website: "https://joesbeerhouse.com",
+    highlights: ["Game meat steaks", "Quirky decor", "Live music", "Outdoor seating", "Vegetarian options"]
   },
   { 
     id: 7, 
     name: "Katutura Township", 
     tagline: "AUTHENTIC", 
     image: "/images/windhoek/katutura-township.jpg",
-    description: "Experience real Namibian life, kapana BBQ, and vibrant local markets."
+    description: "Katutura is Windhoek's largest township, offering an authentic glimpse into everyday Namibian life. Guided tours take you through vibrant markets, kapana (street BBQ) stalls, shebeens (local bars), and community projects. Experience the warmth of local hospitality and learn about the area's history and culture.",
+    address: "Katutura, Northwest Windhoek",
+    hours: "Tours typically 9:00-13:00",
+    phone: "+264 81 127 5863",
+    highlights: ["Kapana BBQ", "Local markets", "Cultural tours", "Community projects", "Authentic experience"]
   },
   { 
     id: 8, 
     name: "Parliament Gardens", 
     tagline: "HISTORIC", 
     image: "/images/windhoek/parliament-gardens.jpg",
-    description: "Beautiful gardens at the Tintenpalast with statues of independence heroes."
+    description: "The Parliament Gardens surround the historic Tintenpalast (Ink Palace), Namibia's parliament building. These beautiful gardens feature statues of independence heroes, manicured lawns, and shady trees. It's a peaceful oasis in the city center, perfect for a morning stroll or afternoon picnic.",
+    address: "Love Street, Windhoek Central",
+    hours: "Daily 6:00-18:00",
+    highlights: ["Historic Tintenpalast", "Independence statues", "Manicured gardens", "Free entry", "Photo spots"]
   },
   { 
     id: 9, 
-    name: "Alte Feste", 
+    name: "Alte Feste Museum", 
     tagline: "OLDEST", 
     image: "/images/windhoek/christuskirche-museum.jpg",
-    description: "Windhoek's oldest building (1890), former German fort and national museum."
+    description: "Alte Feste (Old Fortress) is Windhoek's oldest surviving building, constructed in 1890 as a German military fort. Now a national museum, it houses exhibits on Namibian history, colonial times, and the independence struggle. The whitewashed fortress offers panoramic views and a glimpse into the city's past.",
+    address: "Robert Mugabe Avenue, Windhoek Central",
+    hours: "Mon-Fri 9:00-17:00, Sat 10:00-12:30",
+    phone: "+264 61 293 4358",
+    highlights: ["Oldest building", "History exhibits", "Colonial artifacts", "City views", "Small entry fee"]
   },
   { 
     id: 10, 
     name: "National Art Gallery", 
     tagline: "CULTURE", 
     image: "/images/windhoek/craft-centre-interior.jpg",
-    description: "State-owned gallery preserving and showcasing Namibian contemporary art."
+    description: "The National Art Gallery of Namibia is the country's premier art institution, showcasing contemporary Namibian and African art. The gallery hosts rotating exhibitions, artist talks, and cultural events. It's an excellent introduction to Namibia's vibrant art scene and creative community.",
+    address: "Robert Mugabe Avenue & John Meinert Street",
+    hours: "Mon-Fri 8:00-17:00, Sat 9:00-14:00",
+    phone: "+264 61 231 160",
+    highlights: ["Contemporary art", "Rotating exhibitions", "Artist talks", "Gift shop", "Free entry"]
   },
   { 
     id: 11, 
-    name: "Naankuse Sanctuary", 
+    name: "Naankuse Wildlife Sanctuary", 
     tagline: "WILDLIFE", 
     image: "/images/windhoek/daan-viljoen-lodge.jpg",
-    description: "Celebrity-backed sanctuary with cheetah walks and carnivore feeding tours."
+    description: "Naankuse Wildlife Sanctuary, co-founded by Angelina Jolie and Brad Pitt, is a conservation project 45 minutes from Windhoek. Visitors can walk with cheetahs, participate in carnivore feeding tours, and learn about wildlife rehabilitation. The sanctuary also supports San Bushmen communities.",
+    address: "D1499 Road, 45km east of Windhoek",
+    hours: "Tours at 8:00, 14:00, and 16:00",
+    phone: "+264 61 232 009",
+    website: "https://naankuse.com",
+    highlights: ["Cheetah walks", "Carnivore feeding", "San cultural village", "Conservation education", "Accommodation"]
   },
   { 
     id: 12, 
     name: "Hilton Sky Bar", 
     tagline: "SUNSET", 
     image: "/images/windhoek/skyline-sunset.jpg",
-    description: "Rooftop bar with panoramic city views, pool access, and stunning sunsets."
+    description: "The Hilton Windhoek's rooftop Sky Bar offers the best panoramic views in the city. Enjoy craft cocktails, local wines, and light bites while watching the sun set over the Khomas Highlands. The infinity pool and stylish lounge make it perfect for sundowners and special occasions.",
+    address: "Rev. Michael Scott Street, Windhoek Central",
+    hours: "Daily 10:00-22:00",
+    phone: "+264 61 296 2929",
+    website: "https://hilton.com/windhoek",
+    highlights: ["Panoramic views", "Infinity pool", "Craft cocktails", "Sunset spot", "Stylish atmosphere"]
   },
 ];
 
@@ -142,6 +194,7 @@ export default function Home() {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [scrollY, setScrollY] = useState(0);
+  const [selectedAttraction, setSelectedAttraction] = useState<typeof ICONIC_DESTINATIONS[0] | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -350,6 +403,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
+            onClick={() => setSelectedAttraction(dest)}
             className="relative aspect-square group cursor-pointer overflow-hidden"
           >
             <div 
@@ -364,6 +418,9 @@ export default function Home() {
               <h3 className="font-display text-2xl md:text-3xl text-white font-bold tracking-wide">
                 {dest.name.toUpperCase()}
               </h3>
+              <p className="text-white/60 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                Tap to learn more
+              </p>
             </div>
           </motion.div>
         ))}
@@ -623,6 +680,13 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Attraction Modal */}
+      <AttractionModal
+        attraction={selectedAttraction}
+        isOpen={!!selectedAttraction}
+        onClose={() => setSelectedAttraction(null)}
+      />
     </>
   );
 }

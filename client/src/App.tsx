@@ -11,8 +11,9 @@ import Explore from "./pages/Explore";
 import Categories from "./pages/Categories";
 import CategoryDetail from "./pages/CategoryDetail";
 import ListingDetail from "./pages/ListingDetail";
-import Regions from "./pages/Regions";
-import Routes from "./pages/Routes";
+// Regions removed for city portal
+import CityTours from "./pages/CityTours";
+import Install from "./pages/Install";
 import RouteDetail from "./pages/RouteDetail";
 import RoutesDebug from "./pages/RoutesDebug";
 import RoutesSimple from "./pages/RoutesSimple";
@@ -66,15 +67,17 @@ function Router() {
         </PublicLayout>
       </Route>
       
-      <Route path="/regions">
+      {/* Regions removed for city portal */}
+      
+      <Route path="/install">
         <PublicLayout>
-          <Regions />
+          <Install />
         </PublicLayout>
       </Route>
       
-      <Route path="/routes">
+      <Route path="/city-tours">
         <PublicLayout>
-          <Routes />
+          <CityTours />
         </PublicLayout>
       </Route>
       

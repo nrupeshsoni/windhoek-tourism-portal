@@ -1,5 +1,5 @@
-// Namibia Tourism Portal - Service Worker
-const CACHE_NAME = 'namibia-tourism-v1';
+// Windhoek Tourism Portal - Service Worker
+const CACHE_NAME = 'windhoek-tourism-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -57,7 +57,7 @@ self.addEventListener('fetch', (event) => {
 
 // Push notification event
 self.addEventListener('push', (event) => {
-  let data = { title: 'Namibia Tourism', body: 'New update available!' };
+  let data = { title: 'Windhoek Tourism', body: 'New update available!' };
   
   if (event.data) {
     try {
