@@ -1,0 +1,946 @@
+{
+  "query": "SELECT DISTINCT shortDescription FROM cnrtp_listings WHERE shortDescription LIKE 'NTB-registered%' ORDER BY shortDescription",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT DISTINCT shortDescription FROM cnrtp_listings WHERE shortDescription LIKE 'NTB-registered%' ORDER BY shortDescription",
+  "rows": [
+    {
+      "shortDescription": "NTB-registered activity operator -non motorised in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator -non motorised in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator -non motorised in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator -non motorised in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator -non motorised in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Nairobi"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered activity operator in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered air charter operator in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered air charter operator in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered air charter operator in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered air charter operator in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered backpackers hostel accomodation in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered bed and breakfast accommodation in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered booking agent in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Belgium"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered camp site in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered camping & caravan park in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered conference center in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered conference center in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered conference center in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered conference center in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in -NWR-Germany"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in +Ngamiland"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Australia"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Belgium"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Belgiun"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Berlin"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Botswana"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Brazil"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in British Columbia"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Czech Republic"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Eastern Provence"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in England"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in France"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Gauteng Province"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Gaviena"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Germany"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Ghana"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Hungary"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Madagascar"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Mauritius"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Nairobi"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in NGAMILAND"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Nigeria"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Nordrhein-Westfalen"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in North West"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in SANDTON PAULSHOF"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Scotland"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Seychelles"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in South Africa"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Spain"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in SWEDEN"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Switzerland"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Tanzania"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in UK"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in United  State of America"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in United Kingdom"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Viken"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Western Cape"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Zambia"
+    },
+    {
+      "shortDescription": "NTB-registered foreign tour operator in Zimbambwe"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered guest farm in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Kavango-East"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered guest house in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered hotel in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered lodge in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered pension hotel in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered permanent tented camp with campsite in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered permenant tented camp in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered resorts in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered rest camp in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered self catering accommodation in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered shuttle and transport in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Kavango West"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered tented lodge with campsite in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Ohangwena"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered tour and safari operator in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered tour facilitator in South Africa"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in GERMANY"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunter operator without accommodation in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Kunene"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered trophy hunting with accomodation in Zambezi"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Erongo"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Hardap"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Karas"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Kavango East"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Khomas"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Omaheke"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Omusati"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Oshana"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Oshikoto"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Otjozondjupa"
+    },
+    {
+      "shortDescription": "NTB-registered vehicle rental operators in Zambezi"
+    }
+  ],
+  "messages": [],
+  "stdout": "shortDescription\nNTB-registered activity operator -non motorised in Erongo\nNTB-registered activity operator -non motorised in Khomas\nNTB-registered activity operator -non motorised in Kunene\nNTB-registered activity operator -non motorised in Otjozondjupa\nNTB-registered activity operator -non motorised in Zambezi\nNTB-registered activity operator in Erongo\nNTB-registered activity operator in Hardap\nNTB-registered activity operator in Karas\nNTB-registered activity operator in Kavango East\nNTB-registered activity operator in Khomas\nNTB-registered activity operator in Kunene\nNTB-registered activity operator in Nairobi\nNTB-registered activity operator in Oshana\nNTB-registered activity operator in Oshikoto\nNTB-registered activity operator in Otjozondjupa\nNTB-registered activity operator in Zambezi\nNTB-registered air charter operator in Erongo\nNTB-registered air charter operator in Khomas\nNTB-registered air charter operator in Oshikoto\nNTB-registered air charter operator in Otjozondjupa\nNTB-registered backpackers hostel accomodation in Erongo\nNTB-registered backpackers hostel accomodation in Hardap\nNTB-registered backpackers hostel accomodation in Karas\nNTB-registered backpackers hostel accomodation in Kavango East\nNTB-registered backpackers hostel accomodation in Kavango West\nNTB-registered backpackers hostel accomodation in Khomas\nNTB-registered backpackers hostel accomodation in Kunene\nNTB-registered backpackers hostel accomodation in Ohangwena\nNTB-registered backpackers hostel accomodation in Omaheke\nNTB-registered backpackers hostel accomodation in Omusati\nNTB-registered backpackers hostel accomodation in Oshana\nNTB-registered backpackers hostel accomodation in Oshikoto\nNTB-registered backpackers hostel accomodation in Otjozondjupa\nNTB-registered backpackers hostel accomodation in Zambezi\nNTB-registered bed and breakfast accommodation in Erongo\nNTB-registered bed and breakfast accommodation in Hardap\nNTB-registered bed and breakfast accommodation in Karas\nNTB-registered bed and breakfast accommodation in Kavango East\nNTB-registered bed and breakfast accommodation in Kavango West\nNTB-registered bed and breakfast accommodation in Khomas\nNTB-registered bed and breakfast accommodation in Kunene\nNTB-registered bed and breakfast accommodation in Ohangwena\nNTB-registered bed and breakfast accommodation in Omaheke\nNTB-registered bed and breakfast accommodation in Oshana\nNTB-registered bed and breakfast accommodation in Oshikoto\nNTB-registered bed and breakfast accommodation in Otjozondjupa\nNTB-registered bed and breakfast accommodation in Zambezi\nNTB-registered booking agent in Erongo\nNTB-registered booking agent in Hardap\nNTB-registered booking agent in Karas\nNTB-registered booking agent in Kavango East\nNTB-registered booking agent in Khomas\nNTB-registered booking agent in Kunene\nNTB-registered booking agent in Omaheke\nNTB-registered booking agent in Omusati\nNTB-registered booking agent in Oshana\nNTB-registered booking agent in Oshikoto\nNTB-registered booking agent in Otjozondjupa\nNTB-registered booking agent in Zambezi\nNTB-registered camp site in Belgium\nNTB-registered camp site in Erongo\nNTB-registered camp site in Hardap\nNTB-registered camp site in Karas\nNTB-registered camp site in Kavango East\nNTB-registered camp site in Kavango West\nNTB-registered camp site in Khomas\nNTB-registered camp site in Kunene\nNTB-registered camp site in Ohangwena\nNTB-registered camp site in Omaheke\nNTB-registered camp site in Omusati\nNTB-registered camp site in Oshana\nNTB-registered camp site in Oshikoto\nNTB-registered camp site in Otjozondjupa\nNTB-registered camp site in Zambezi\nNTB-registered camping & caravan park in Erongo\nNTB-registered camping & caravan park in Hardap\nNTB-registered camping & caravan park in Khomas\nNTB-registered camping & caravan park in Kunene\nNTB-registered camping & caravan park in Omusati\nNTB-registered camping & caravan park in Otjozondjupa\nNTB-registered conference center in Erongo\nNTB-registered conference center in Khomas\nNTB-registered conference center in Oshikoto\nNTB-registered conference center in Zambezi\nNTB-registered foreign tour operator in -NWR-Germany\nNTB-registered foreign tour operator in +Ngamiland\nNTB-registered foreign tour operator in Australia\nNTB-registered foreign tour operator in Belgium\nNTB-registered foreign tour operator in Belgiun\nNTB-registered foreign tour operator in Berlin\nNTB-registered foreign tour operator in Botswana\nNTB-registered foreign tour operator in Brazil\nNTB-registered foreign tour operator in British Columbia\nNTB-registered foreign tour operator in Czech Republic\nNTB-registered foreign tour operator in Eastern Provence\nNTB-registered foreign tour operator in England\nNTB-registered foreign tour operator in Erongo\nNTB-registered foreign tour operator in France\nNTB-registered foreign tour operator in Gauteng Province\nNTB-registered foreign tour operator in Gaviena\nNTB-registered foreign tour operator in Germany\nNTB-registered foreign tour operator in Ghana\nNTB-registered foreign tour operator in Hungary\nNTB-registered foreign tour operator in Kavango West\nNTB-registered foreign tour operator in Khomas\nNTB-registered foreign tour operator in Madagascar\nNTB-registered foreign tour operator in Mauritius\nNTB-registered foreign tour operator in Nairobi\nNTB-registered foreign tour operator in NGAMILAND\nNTB-registered foreign tour operator in Nigeria\nNTB-registered foreign tour operator in Nordrhein-Westfalen\nNTB-registered foreign tour operator in North West\nNTB-registered foreign tour operator in Oshikoto\nNTB-registered foreign tour operator in SANDTON PAULSHOF\nNTB-registered foreign tour operator in Scotland\nNTB-registered foreign tour operator in Seychelles\nNTB-registered foreign tour operator in South Africa\nNTB-registered foreign tour operator in Spain\nNTB-registered foreign tour operator in SWEDEN\nNTB-registered foreign tour operator in Switzerland\nNTB-registered foreign tour operator in Tanzania\nNTB-registered foreign tour operator in UK\nNTB-registered foreign tour operator in United  State of America\nNTB-registered foreign tour operator in United Kingdom\nNTB-registered foreign tour operator in Viken\nNTB-registered foreign tour operator in Western Cape\nNTB-registered foreign tour operator in Zambezi\nNTB-registered foreign tour operator in Zambia\nNTB-registered foreign tour operator in Zimbambwe\nNTB-registered guest farm in Erongo\nNTB-registered guest farm in Hardap\nNTB-registered guest farm in Karas\nNTB-registered guest farm in Kavango East\nNTB-registered guest farm in Khomas\nNTB-registered guest farm in Kunene\nNTB-registered guest farm in Ohangwena\nNTB-registered guest farm in Omaheke\nNTB-registered guest farm in Oshikoto\nNTB-registered guest farm in Otjozondjupa\nNTB-registered guest house in Erongo\nNTB-registered guest house in Hardap\nNTB-registered guest house in Karas\nNTB-registered guest house in Kavango East\nNTB-registered guest house in Kavango West\nNTB-registered guest house in Kavango-East\nNTB-registered guest house in Khomas\nNTB-registered guest house in Kunene\nNTB-registered guest house in Ohangwena\nNTB-registered guest house in Omaheke\nNTB-registered guest house in Omusati\nNTB-registered guest house in Oshana\nNTB-registered guest house in Oshikoto\nNTB-registered guest house in Otjozondjupa\nNTB-registered guest house in Zambezi\nNTB-registered hotel in Erongo\nNTB-registered hotel in Hardap\nNTB-registered hotel in Karas\nNTB-registered hotel in Kavango East\nNTB-registered hotel in Khomas\nNTB-registered hotel in Kunene\nNTB-registered hotel in Ohangwena\nNTB-registered hotel in Omusati\nNTB-registered hotel in Oshana\nNTB-registered hotel in Oshikoto\nNTB-registered hotel in Otjozondjupa\nNTB-registered hotel in Zambezi\nNTB-registered lodge in Erongo\nNTB-registered lodge in Hardap\nNTB-registered lodge in Karas\nNTB-registered lodge in Kavango East\nNTB-registered lodge in Kavango West\nNTB-registered lodge in Khomas\nNTB-registered lodge in Kunene\nNTB-registered lodge in Ohangwena\nNTB-registered lodge in Omaheke\nNTB-registered lodge in Omusati\nNTB-registered lodge in Oshana\nNTB-registered lodge in Oshikoto\nNTB-registered lodge in Otjozondjupa\nNTB-registered lodge in Zambezi\nNTB-registered pension hotel in Erongo\nNTB-registered pension hotel in Hardap\nNTB-registered pension hotel in Karas\nNTB-registered pension hotel in Kavango East\nNTB-registered pension hotel in Kavango West\nNTB-registered pension hotel in Khomas\nNTB-registered pension hotel in Kunene\nNTB-registered pension hotel in Ohangwena\nNTB-registered pension hotel in Omaheke\nNTB-registered pension hotel in Omusati\nNTB-registered pension hotel in Oshana\nNTB-registered pension hotel in Oshikoto\nNTB-registered pension hotel in Otjozondjupa\nNTB-registered pension hotel in Zambezi\nNTB-registered permanent tented camp in Erongo\nNTB-registered permanent tented camp in Kavango East\nNTB-registered permanent tented camp in Kunene\nNTB-registered permanent tented camp in Ohangwena\nNTB-registered permanent tented camp in Zambezi\nNTB-registered permanent tented camp with campsite in Kunene\nNTB-registered permenant tented camp in Erongo\nNTB-registered permenant tented camp in Hardap\nNTB-registered permenant tented camp in Karas\nNTB-registered permenant tented camp in Kavango East\nNTB-registered permenant tented camp in Khomas\nNTB-registered permenant tented camp in Kunene\nNTB-registered permenant tented camp in Omaheke\nNTB-registered permenant tented camp in Omusati\nNTB-registered permenant tented camp in Oshikoto\nNTB-registered permenant tented camp in Otjozondjupa\nNTB-registered permenant tented camp in Zambezi\nNTB-registered resorts in Hardap\nNTB-registered rest camp in Erongo\nNTB-registered rest camp in Hardap\nNTB-registered rest camp in Karas\nNTB-registered rest camp in Kavango East\nNTB-registered rest camp in Khomas\nNTB-registered rest camp in Kunene\nNTB-registered rest camp in Omaheke\nNTB-registered rest camp in Omusati\nNTB-registered rest camp in Oshana\nNTB-registered rest camp in Oshikoto\nNTB-registered rest camp in Otjozondjupa\nNTB-registered rest camp in Zambezi\nNTB-registered self catering accommodation in Erongo\nNTB-registered self catering accommodation in Hardap\nNTB-registered self catering accommodation in Karas\nNTB-registered self catering accommodation in Kavango East\nNTB-registered self catering accommodation in Khomas\nNTB-registered self catering accommodation in Kunene\nNTB-registered self catering accommodation in Omaheke\nNTB-registered self catering accommodation in Omusati\nNTB-registered self catering accommodation in Oshana\nNTB-registered self catering accommodation in Oshikoto\nNTB-registered self catering accommodation in Otjozondjupa\nNTB-registered self catering accommodation in Zambezi\nNTB-registered shuttle and transport in Erongo\nNTB-registered shuttle and transport in Hardap\nNTB-registered shuttle and transport in Karas\nNTB-registered shuttle and transport in Khomas\nNTB-registered shuttle and transport in Kunene\nNTB-registered shuttle and transport in Omaheke\nNTB-registered shuttle and transport in Oshikoto\nNTB-registered shuttle and transport in Otjozondjupa\nNTB-registered shuttle and transport in Zambezi\nNTB-registered tented lodge in Erongo\nNTB-registered tented lodge in Hardap\nNTB-registered tented lodge in Otjozondjupa\nNTB-registered tented lodge in Zambezi\nNTB-registered tented lodge with campsite in Erongo\nNTB-registered tented lodge with campsite in Hardap\nNTB-registered tented lodge with campsite in Karas\nNTB-registered tented lodge with campsite in Kavango West\nNTB-registered tented lodge with campsite in Khomas\nNTB-registered tented lodge with campsite in Kunene\nNTB-registered tented lodge with campsite in Oshikoto\nNTB-registered tented lodge with campsite in Otjozondjupa\nNTB-registered tented lodge with campsite in Zambezi\nNTB-registered tour and safari operator in Erongo\nNTB-registered tour and safari operator in Hardap\nNTB-registered tour and safari operator in Karas\nNTB-registered tour and safari operator in Kavango East\nNTB-registered tour and safari operator in Khomas\nNTB-registered tour and safari operator in Kunene\nNTB-registered tour and safari operator in Ohangwena\nNTB-registered tour and safari operator in Omaheke\nNTB-registered tour and safari operator in Omusati\nNTB-registered tour and safari operator in Oshana\nNTB-registered tour and safari operator in Oshikoto\nNTB-registered tour and safari operator in Otjozondjupa\nNTB-registered tour and safari operator in Zambezi\nNTB-registered tour facilitator in Erongo\nNTB-registered tour facilitator in Hardap\nNTB-registered tour facilitator in Karas\nNTB-registered tour facilitator in Kavango East\nNTB-registered tour facilitator in Khomas\nNTB-registered tour facilitator in Kunene\nNTB-registered tour facilitator in Omaheke\nNTB-registered tour facilitator in Oshana\nNTB-registered tour facilitator in Oshikoto\nNTB-registered tour facilitator in Otjozondjupa\nNTB-registered tour facilitator in South Africa\nNTB-registered trophy hunter operator without accommodation in Erongo\nNTB-registered trophy hunter operator without accommodation in GERMANY\nNTB-registered trophy hunter operator without accommodation in Hardap\nNTB-registered trophy hunter operator without accommodation in Kavango East\nNTB-registered trophy hunter operator without accommodation in Khomas\nNTB-registered trophy hunter operator without accommodation in Kunene\nNTB-registered trophy hunter operator without accommodation in Omaheke\nNTB-registered trophy hunter operator without accommodation in Oshikoto\nNTB-registered trophy hunter operator without accommodation in Otjozondjupa\nNTB-registered trophy hunting with accomodation in Erongo\nNTB-registered trophy hunting with accomodation in Hardap\nNTB-registered trophy hunting with accomodation in Karas\nNTB-registered trophy hunting with accomodation in Kavango East\nNTB-registered trophy hunting with accomodation in Khomas\nNTB-registered trophy hunting with accomodation in Kunene\nNTB-registered trophy hunting with accomodation in Omaheke\nNTB-registered trophy hunting with accomodation in Oshikoto\nNTB-registered trophy hunting with accomodation in Otjozondjupa\nNTB-registered trophy hunting with accomodation in Zambezi\nNTB-registered vehicle rental operators in Erongo\nNTB-registered vehicle rental operators in Hardap\nNTB-registered vehicle rental operators in Karas\nNTB-registered vehicle rental operators in Kavango East\nNTB-registered vehicle rental operators in Khomas\nNTB-registered vehicle rental operators in Omaheke\nNTB-registered vehicle rental operators in Omusati\nNTB-registered vehicle rental operators in Oshana\nNTB-registered vehicle rental operators in Oshikoto\nNTB-registered vehicle rental operators in Otjozondjupa\nNTB-registered vehicle rental operators in Zambezi\n",
+  "stderr": "",
+  "execution_time_ms": 110
+}

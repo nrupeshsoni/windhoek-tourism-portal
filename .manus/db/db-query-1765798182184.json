@@ -1,0 +1,43 @@
+{
+  "query": "SELECT COUNT(*) as total_routes FROM cnrtp_routes; SELECT duration, COUNT(*) as count FROM cnrtp_routes GROUP BY duration ORDER BY duration;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT COUNT(*) as total_routes FROM cnrtp_routes; SELECT duration, COUNT(*) as count FROM cnrtp_routes GROUP BY duration ORDER BY duration;",
+  "rows": [
+    {
+      "total_routes": "72"
+    },
+    {
+      "total_routes": "duration\tcount"
+    },
+    {
+      "total_routes": "1\t14"
+    },
+    {
+      "total_routes": "2\t14"
+    },
+    {
+      "total_routes": "3\t14"
+    },
+    {
+      "total_routes": "5\t5"
+    },
+    {
+      "total_routes": "7\t5"
+    },
+    {
+      "total_routes": "10\t5"
+    },
+    {
+      "total_routes": "14\t5"
+    },
+    {
+      "total_routes": "21\t5"
+    },
+    {
+      "total_routes": "30\t5"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_routes\n72\nduration\tcount\n1\t14\n2\t14\n3\t14\n5\t5\n7\t5\n10\t5\n14\t5\n21\t5\n30\t5\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

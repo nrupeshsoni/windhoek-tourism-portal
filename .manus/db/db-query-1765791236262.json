@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, title FROM cnrtp_media ORDER BY id LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT id, title FROM cnrtp_media ORDER BY id LIMIT 20",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Wild Dog Safaris - Main Image"
+    },
+    {
+      "id": "2",
+      "title": "Namibia Desert Explorers - Main Image"
+    },
+    {
+      "id": "3",
+      "title": "Olive Grove Guesthouse - Main Image"
+    },
+    {
+      "id": "4",
+      "title": "The Tug Restaurant - Main Image"
+    },
+    {
+      "id": "5",
+      "title": "Sossusvlei Desert Lodge - Main Image"
+    },
+    {
+      "id": "6",
+      "title": "Etosha Safari Lodge - Main Image"
+    },
+    {
+      "id": "7",
+      "title": "Spitzkoppe Community Campsite - Main Image"
+    },
+    {
+      "id": "8",
+      "title": "Sesriem Campsite - Main Image"
+    },
+    {
+      "id": "9",
+      "title": "Namibia Shuttle Express - Main Image"
+    },
+    {
+      "id": "10",
+      "title": "Swakopmund Adventure Centre - Main Image"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\n1\tWild Dog Safaris - Main Image\n2\tNamibia Desert Explorers - Main Image\n3\tOlive Grove Guesthouse - Main Image\n4\tThe Tug Restaurant - Main Image\n5\tSossusvlei Desert Lodge - Main Image\n6\tEtosha Safari Lodge - Main Image\n7\tSpitzkoppe Community Campsite - Main Image\n8\tSesriem Campsite - Main Image\n9\tNamibia Shuttle Express - Main Image\n10\tSwakopmund Adventure Centre - Main Image\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

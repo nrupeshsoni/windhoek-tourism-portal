@@ -1,0 +1,56 @@
+{
+  "name": "Namibia - Discover Africa's Most Spectacular Destination",
+  "short_name": "Namibia",
+  "description": "Explore Namibia's ancient deserts, world-class wildlife, stunning landscapes, and rich cultural heritage.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fef7ed",
+  "theme_color": "#d97706",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["travel", "tourism", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/hero-sossusvlei.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Namibia Tourism Portal Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explore Destinations",
+      "short_name": "Explore",
+      "description": "Browse all Namibia destinations and experiences",
+      "url": "/explore",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Categories",
+      "short_name": "Categories",
+      "description": "View tourism categories",
+      "url": "/categories",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    }
+  ]
+}

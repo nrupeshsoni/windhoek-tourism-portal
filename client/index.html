@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Windhoek - Discover Capital City</title>
+    <meta name="title" content="Windhoek - Discover Capital City" />
+    <meta name="description" content="Discover Windhoek - Africa's most spectacular destination. Explore ancient deserts, world-class wildlife, stunning landscapes, and rich cultural heritage. Find lodges, tour operators, campsites, and plan your perfect Namibian adventure." />
+    <meta name="keywords" content="Windhoek tourism, Windhoek travel, Visit Windhoek, Christuskirche, Independence Museum National Park, Fish River Canyon, Skeleton Coast, Namib Desert, Namibia safari, Namibia wildlife, Namibia lodges, Namibia campsites, Namibia tour operators, desert tours, African safari, adventure travel, eco-tourism, sustainable tourism" />
+    <meta name="author" content="Windhoek Tourism Portal" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content="NA" />
+    <meta name="geo.placename" content="Namibia" />
+    <meta name="geo.position" content="-22.5609;17.0658" />
+    <meta name="ICBM" content="-22.5609, 17.0658" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://namibia.com/" />
+    <meta property="og:title" content="Windhoek - Discover Capital City" />
+    <meta property="og:description" content="Discover Windhoek - Africa's most spectacular destination. Explore ancient deserts, world-class wildlife, stunning landscapes, and rich cultural heritage." />
+    <meta property="og:image" content="/images/hero-sossusvlei.jpg" />
+    <meta property="og:site_name" content="Namibia" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://namibia.com/" />
+    <meta name="twitter:title" content="Windhoek - Discover Capital City" />
+    <meta name="twitter:description" content="Discover Windhoek - Africa's most spectacular destination. Explore ancient deserts, world-class wildlife, stunning landscapes, and rich cultural heritage." />
+    <meta name="twitter:image" content="/images/hero-sossusvlei.jpg" />
+    <meta name="twitter:site" content="@VisitNamibia" />
+    
+    <!-- Theme and App -->
+    <meta name="theme-color" content="#d97706" />
+    <meta name="msapplication-TileColor" content="#d97706" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Namibia" />
+    <meta name="application-name" content="Namibia" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://namibia.com/" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    
+    <!-- Google Fonts - Inter + Playfair Display + Cormorant Garamond for elegant typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FF3EGHC34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1FF3EGHC34');
+    </script>
+    
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="/images/hero-sossusvlei.jpg" />
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    
+    <!-- Noscript fallback -->
+    <noscript>
+      <style>
+        .js-only { display: none !important; }
+      </style>
+      <div style="padding: 20px; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>Windhoek - Discover Capital City</h1>
+        <p>Please enable JavaScript to experience the full interactive features of this website.</p>
+      </div>
+    </noscript>
+  </body>
+</html>

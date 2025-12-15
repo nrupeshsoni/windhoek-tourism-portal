@@ -1,0 +1,14 @@
+{
+  "query": "SELECT isActive, COUNT(*) as count FROM cnrtp_routes GROUP BY isActive;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT isActive, COUNT(*) as count FROM cnrtp_routes GROUP BY isActive;",
+  "rows": [
+    {
+      "isActive": "1",
+      "count": "72"
+    }
+  ],
+  "messages": [],
+  "stdout": "isActive\tcount\n1\t72\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

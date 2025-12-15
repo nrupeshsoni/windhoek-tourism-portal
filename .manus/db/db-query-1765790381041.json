@@ -1,0 +1,50 @@
+{
+  "query": "SELECT c.name as category_name, COUNT(l.id) as listing_count FROM cnrtp_listings l JOIN cnrtp_categories c ON l.categoryId = c.id GROUP BY c.id, c.name ORDER BY listing_count DESC LIMIT 15",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT c.name as category_name, COUNT(l.id) as listing_count FROM cnrtp_listings l JOIN cnrtp_categories c ON l.categoryId = c.id GROUP BY c.id, c.name ORDER BY listing_count DESC LIMIT 15",
+  "rows": [
+    {
+      "category_name": "Tour Operators",
+      "listing_count": "2352"
+    },
+    {
+      "category_name": "Guest Houses",
+      "listing_count": "1991"
+    },
+    {
+      "category_name": "Safari Experiences",
+      "listing_count": "777"
+    },
+    {
+      "category_name": "Lodges & Hotels",
+      "listing_count": "527"
+    },
+    {
+      "category_name": "Shuttles & Transfers",
+      "listing_count": "432"
+    },
+    {
+      "category_name": "Campsites",
+      "listing_count": "428"
+    },
+    {
+      "category_name": "Car Rentals",
+      "listing_count": "286"
+    },
+    {
+      "category_name": "Adventure Activities",
+      "listing_count": "194"
+    },
+    {
+      "category_name": "Conference & Events",
+      "listing_count": "7"
+    },
+    {
+      "category_name": "Restaurants & Dining",
+      "listing_count": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "category_name\tlisting_count\nTour Operators\t2352\nGuest Houses\t1991\nSafari Experiences\t777\nLodges & Hotels\t527\nShuttles & Transfers\t432\nCampsites\t428\nCar Rentals\t286\nAdventure Activities\t194\nConference & Events\t7\nRestaurants & Dining\t1\n",
+  "stderr": "",
+  "execution_time_ms": 61
+}

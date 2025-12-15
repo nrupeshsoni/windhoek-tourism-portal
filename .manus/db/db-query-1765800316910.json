@@ -1,0 +1,15 @@
+{
+  "query": "SELECT COUNT(*) as total, SUM(CASE WHEN isActive = 1 THEN 1 ELSE 0 END) as active, SUM(CASE WHEN isActive = 0 THEN 1 ELSE 0 END) as inactive FROM cnrtp_routes",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT COUNT(*) as total, SUM(CASE WHEN isActive = 1 THEN 1 ELSE 0 END) as active, SUM(CASE WHEN isActive = 0 THEN 1 ELSE 0 END) as inactive FROM cnrtp_routes",
+  "rows": [
+    {
+      "total": "72",
+      "active": "72",
+      "inactive": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\tactive\tinactive\n72\t72\t0\n",
+  "stderr": "",
+  "execution_time_ms": 129
+}

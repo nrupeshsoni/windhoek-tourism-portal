@@ -1,0 +1,425 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Namibia Brand Colors */
+  --namibia-desert: oklch(0.65 0.18 45);
+  --namibia-ocean: oklch(0.55 0.15 230);
+  --namibia-wildlife: oklch(0.50 0.12 150);
+  --namibia-savanna: oklch(0.75 0.12 80);
+  --namibia-sunset: oklch(0.60 0.20 30);
+  --namibia-sand: oklch(0.92 0.03 80);
+  
+  /* Primary: Desert Orange/Terracotta */
+  --primary: oklch(0.65 0.18 45);
+  --primary-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.65 0.18 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  
+  /* Chart colors - Namibia palette */
+  --chart-1: oklch(0.65 0.18 45);
+  --chart-2: oklch(0.55 0.15 230);
+  --chart-3: oklch(0.50 0.12 150);
+  --chart-4: oklch(0.75 0.12 80);
+  --chart-5: oklch(0.60 0.20 30);
+  
+  --radius: 1rem;
+  --background: oklch(0.99 0.005 80);
+  --foreground: oklch(0.15 0.02 45);
+  --card: oklch(1 0 0 / 70%);
+  --card-foreground: oklch(0.15 0.02 45);
+  --popover: oklch(1 0 0 / 90%);
+  --popover-foreground: oklch(0.15 0.02 45);
+  --secondary: oklch(0.96 0.01 80);
+  --secondary-foreground: oklch(0.3 0.02 45);
+  --muted: oklch(0.95 0.01 80);
+  --muted-foreground: oklch(0.45 0.02 45);
+  --accent: oklch(0.55 0.15 230);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.90 0.01 80);
+  --input: oklch(0.92 0.01 80);
+  --ring: oklch(0.65 0.18 45);
+  --sidebar: oklch(0.98 0.005 80);
+  --sidebar-foreground: oklch(0.15 0.02 45);
+  --sidebar-accent: oklch(0.95 0.02 45);
+  --sidebar-accent-foreground: oklch(0.15 0.02 45);
+  --sidebar-border: oklch(0.90 0.01 80);
+  --sidebar-ring: oklch(0.65 0.18 45);
+}
+
+.dark {
+  --primary: oklch(0.70 0.18 45);
+  --primary-foreground: oklch(0.1 0 0);
+  --sidebar-primary: oklch(0.70 0.18 45);
+  --sidebar-primary-foreground: oklch(0.1 0 0);
+  --background: oklch(0.12 0.02 45);
+  --foreground: oklch(0.92 0.01 80);
+  --card: oklch(0.18 0.02 45 / 70%);
+  --card-foreground: oklch(0.92 0.01 80);
+  --popover: oklch(0.18 0.02 45 / 90%);
+  --popover-foreground: oklch(0.92 0.01 80);
+  --secondary: oklch(0.22 0.02 45);
+  --secondary-foreground: oklch(0.85 0.01 80);
+  --muted: oklch(0.25 0.02 45);
+  --muted-foreground: oklch(0.65 0.01 80);
+  --accent: oklch(0.55 0.15 230);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.60 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.25 0.02 45);
+  --input: oklch(0.28 0.02 45);
+  --ring: oklch(0.70 0.18 45);
+  --chart-1: oklch(0.70 0.18 45);
+  --chart-2: oklch(0.60 0.15 230);
+  --chart-3: oklch(0.55 0.12 150);
+  --chart-4: oklch(0.80 0.12 80);
+  --chart-5: oklch(0.65 0.20 30);
+  --sidebar: oklch(0.15 0.02 45);
+  --sidebar-foreground: oklch(0.92 0.01 80);
+  --sidebar-accent: oklch(0.22 0.02 45);
+  --sidebar-accent-foreground: oklch(0.92 0.01 80);
+  --sidebar-border: oklch(0.25 0.02 45);
+  --sidebar-ring: oklch(0.70 0.18 45);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Premium typography */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-white/70 dark:bg-black/50 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-xl shadow-black/5;
+  }
+  
+  .glass-nav {
+    @apply bg-white/80 dark:bg-black/60 backdrop-blur-2xl border-b border-white/20 dark:border-white/10;
+  }
+  
+  .glass-modal {
+    @apply bg-white/90 dark:bg-black/80 backdrop-blur-3xl border border-white/30 dark:border-white/15 shadow-2xl;
+  }
+  
+  .glass-button {
+    @apply bg-white/50 dark:bg-white/10 backdrop-blur-lg border border-white/30 dark:border-white/20 hover:bg-white/70 dark:hover:bg-white/20 transition-all duration-300;
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-namibia {
+    background: linear-gradient(135deg, 
+      oklch(0.65 0.18 45 / 20%) 0%, 
+      oklch(0.55 0.15 230 / 20%) 50%, 
+      oklch(0.50 0.12 150 / 20%) 100%);
+  }
+  
+  .gradient-sunset {
+    background: linear-gradient(180deg, 
+      oklch(0.75 0.15 45) 0%, 
+      oklch(0.60 0.20 30) 50%, 
+      oklch(0.45 0.18 15) 100%);
+  }
+  
+  .gradient-desert {
+    background: linear-gradient(135deg, 
+      oklch(0.92 0.03 80) 0%, 
+      oklch(0.85 0.08 60) 50%, 
+      oklch(0.75 0.12 45) 100%);
+  }
+  
+  /* Text gradients */
+  .text-gradient-namibia {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, 
+      oklch(0.65 0.18 45) 0%, 
+      oklch(0.55 0.15 230) 50%, 
+      oklch(0.50 0.12 150) 100%);
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px oklch(0.65 0.18 45 / 30%); }
+    50% { box-shadow: 0 0 40px oklch(0.65 0.18 45 / 50%); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 20%), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  /* Stagger animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Container */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1400px;
+    }
+  }
+  
+  /* Hero section styles */
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      oklch(0 0 0 / 30%) 0%,
+      oklch(0 0 0 / 50%) 50%,
+      oklch(0 0 0 / 70%) 100%
+    );
+  }
+  
+  /* Image hover effects */
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .image-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+  
+  .image-zoom:hover img {
+    @apply scale-110;
+  }
+  
+  /* Blur-up image loading */
+  .blur-load {
+    @apply bg-cover bg-center;
+    filter: blur(20px);
+    transition: filter 0.5s ease-out;
+  }
+  
+  .blur-load.loaded {
+    filter: blur(0);
+  }
+}
+
+/* 3D Flip Card Effect */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.group:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Safe area for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
+
+/* Selection styling */
+::selection {
+  background: oklch(0.65 0.18 45 / 30%);
+  color: oklch(0.15 0.02 45);
+}

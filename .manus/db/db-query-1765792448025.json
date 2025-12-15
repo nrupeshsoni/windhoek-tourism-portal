@@ -1,0 +1,90 @@
+{
+  "query": "SELECT id, title FROM cnrtp_media ORDER BY id DESC LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT id, title FROM cnrtp_media ORDER BY id DESC LIMIT 20",
+  "rows": [
+    {
+      "id": "30015",
+      "title": "Skeleton Coast Aerial"
+    },
+    {
+      "id": "30014",
+      "title": "Skeleton Coast"
+    },
+    {
+      "id": "30013",
+      "title": "Sandboarding Namibia"
+    },
+    {
+      "id": "30012",
+      "title": "Swakopmund Quad Biking"
+    },
+    {
+      "id": "30011",
+      "title": "Star Trails Namibia"
+    },
+    {
+      "id": "30010",
+      "title": "Namibia Stargazing"
+    },
+    {
+      "id": "30009",
+      "title": "Spitzkoppe Camping"
+    },
+    {
+      "id": "30008",
+      "title": "Desert Lodge Interior"
+    },
+    {
+      "id": "30007",
+      "title": "Namibia Luxury Lodge"
+    },
+    {
+      "id": "30006",
+      "title": "Etosha Safari"
+    },
+    {
+      "id": "30005",
+      "title": "Etosha Waterhole"
+    },
+    {
+      "id": "30004",
+      "title": "Etosha Wildlife"
+    },
+    {
+      "id": "30003",
+      "title": "Sossusvlei Aerial View"
+    },
+    {
+      "id": "30002",
+      "title": "Sossusvlei Sand Dunes"
+    },
+    {
+      "id": "30001",
+      "title": "Sossusvlei Dune 45"
+    },
+    {
+      "id": "10",
+      "title": "Swakopmund Adventure Centre - Main Image"
+    },
+    {
+      "id": "9",
+      "title": "Namibia Shuttle Express - Main Image"
+    },
+    {
+      "id": "8",
+      "title": "Sesriem Campsite - Main Image"
+    },
+    {
+      "id": "7",
+      "title": "Spitzkoppe Community Campsite - Main Image"
+    },
+    {
+      "id": "6",
+      "title": "Etosha Safari Lodge - Main Image"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\n30015\tSkeleton Coast Aerial\n30014\tSkeleton Coast\n30013\tSandboarding Namibia\n30012\tSwakopmund Quad Biking\n30011\tStar Trails Namibia\n30010\tNamibia Stargazing\n30009\tSpitzkoppe Camping\n30008\tDesert Lodge Interior\n30007\tNamibia Luxury Lodge\n30006\tEtosha Safari\n30005\tEtosha Waterhole\n30004\tEtosha Wildlife\n30003\tSossusvlei Aerial View\n30002\tSossusvlei Sand Dunes\n30001\tSossusvlei Dune 45\n10\tSwakopmund Adventure Centre - Main Image\n9\tNamibia Shuttle Express - Main Image\n8\tSesriem Campsite - Main Image\n7\tSpitzkoppe Community Campsite - Main Image\n6\tEtosha Safari Lodge - Main Image\n",
+  "stderr": "",
+  "execution_time_ms": 100
+}

@@ -1,0 +1,145 @@
+{
+  "query": "SELECT id, name, slug FROM cnrtp_categories ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT id, name, slug FROM cnrtp_categories ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Tour Operators",
+      "slug": "tour-operators"
+    },
+    {
+      "id": "2",
+      "name": "Campsites",
+      "slug": "campsites"
+    },
+    {
+      "id": "3",
+      "name": "Shuttles & Transfers",
+      "slug": "shuttles-transfers"
+    },
+    {
+      "id": "4",
+      "name": "Tour Guides",
+      "slug": "tour-guides"
+    },
+    {
+      "id": "5",
+      "name": "Lodges & Hotels",
+      "slug": "lodges-hotels"
+    },
+    {
+      "id": "6",
+      "name": "Guest Houses",
+      "slug": "guest-houses"
+    },
+    {
+      "id": "7",
+      "name": "Safari Experiences",
+      "slug": "safari-experiences"
+    },
+    {
+      "id": "8",
+      "name": "Adventure Activities",
+      "slug": "adventure-activities"
+    },
+    {
+      "id": "9",
+      "name": "Car Rentals",
+      "slug": "car-rentals"
+    },
+    {
+      "id": "10",
+      "name": "Restaurants & Dining",
+      "slug": "restaurants-dining"
+    },
+    {
+      "id": "11",
+      "name": "Cultural Experiences",
+      "slug": "cultural-experiences"
+    },
+    {
+      "id": "12",
+      "name": "National Parks",
+      "slug": "national-parks"
+    },
+    {
+      "id": "13",
+      "name": "Desert Experiences",
+      "slug": "desert-experiences"
+    },
+    {
+      "id": "14",
+      "name": "Coastal Attractions",
+      "slug": "coastal-attractions"
+    },
+    {
+      "id": "15",
+      "name": "Wildlife Sanctuaries",
+      "slug": "wildlife-sanctuaries"
+    },
+    {
+      "id": "16",
+      "name": "Photography Tours",
+      "slug": "photography-tours"
+    },
+    {
+      "id": "17",
+      "name": "Hiking & Trekking",
+      "slug": "hiking-trekking"
+    },
+    {
+      "id": "18",
+      "name": "Hot Air Ballooning",
+      "slug": "hot-air-ballooning"
+    },
+    {
+      "id": "19",
+      "name": "Fishing Charters",
+      "slug": "fishing-charters"
+    },
+    {
+      "id": "20",
+      "name": "Spa & Wellness",
+      "slug": "spa-wellness"
+    },
+    {
+      "id": "21",
+      "name": "Shopping & Crafts",
+      "slug": "shopping-crafts"
+    },
+    {
+      "id": "22",
+      "name": "Museums & Heritage",
+      "slug": "museums-heritage"
+    },
+    {
+      "id": "23",
+      "name": "Astronomy & Stargazing",
+      "slug": "astronomy-stargazing"
+    },
+    {
+      "id": "24",
+      "name": "Horseback Riding",
+      "slug": "horseback-riding"
+    },
+    {
+      "id": "25",
+      "name": "Wine & Beverage Tours",
+      "slug": "wine-beverage-tours"
+    },
+    {
+      "id": "26",
+      "name": "Medical Tourism",
+      "slug": "medical-tourism"
+    },
+    {
+      "id": "27",
+      "name": "Conference & Events",
+      "slug": "conference-events"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\n1\tTour Operators\ttour-operators\n2\tCampsites\tcampsites\n3\tShuttles & Transfers\tshuttles-transfers\n4\tTour Guides\ttour-guides\n5\tLodges & Hotels\tlodges-hotels\n6\tGuest Houses\tguest-houses\n7\tSafari Experiences\tsafari-experiences\n8\tAdventure Activities\tadventure-activities\n9\tCar Rentals\tcar-rentals\n10\tRestaurants & Dining\trestaurants-dining\n11\tCultural Experiences\tcultural-experiences\n12\tNational Parks\tnational-parks\n13\tDesert Experiences\tdesert-experiences\n14\tCoastal Attractions\tcoastal-attractions\n15\tWildlife Sanctuaries\twildlife-sanctuaries\n16\tPhotography Tours\tphotography-tours\n17\tHiking & Trekking\thiking-trekking\n18\tHot Air Ballooning\thot-air-ballooning\n19\tFishing Charters\tfishing-charters\n20\tSpa & Wellness\tspa-wellness\n21\tShopping & Crafts\tshopping-crafts\n22\tMuseums & Heritage\tmuseums-heritage\n23\tAstronomy & Stargazing\tastronomy-stargazing\n24\tHorseback Riding\thorseback-riding\n25\tWine & Beverage Tours\twine-beverage-tours\n26\tMedical Tourism\tmedical-tourism\n27\tConference & Events\tconference-events\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

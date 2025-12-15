@@ -1,0 +1,8 @@
+{
+  "query": "SELECT COUNT(*) as route_count FROM routes; SELECT COUNT(*) as stop_count FROM route_stops;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT COUNT(*) as route_count FROM routes; SELECT COUNT(*) as stop_count FROM route_stops;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 1: Table 'n3qmvwxzjkdwt4fk6b7gwx.routes' doesn't exist"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, name, isActive FROM cnrtp_routes LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT id, name, isActive FROM cnrtp_routes LIMIT 5;",
+  "rows": [
+    {
+      "id": "60037",
+      "name": "Swakopmund Marine Adventure",
+      "isActive": "1"
+    },
+    {
+      "id": "60038",
+      "name": "Sandwich Harbour 4x4 Expedition",
+      "isActive": "1"
+    },
+    {
+      "id": "60039",
+      "name": "Living Desert Tour",
+      "isActive": "1"
+    },
+    {
+      "id": "60040",
+      "name": "Kolmanskop Ghost Town",
+      "isActive": "1"
+    },
+    {
+      "id": "60041",
+      "name": "Windhoek City Discovery",
+      "isActive": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tisActive\n60037\tSwakopmund Marine Adventure\t1\n60038\tSandwich Harbour 4x4 Expedition\t1\n60039\tLiving Desert Tour\t1\n60040\tKolmanskop Ghost Town\t1\n60041\tWindhoek City Discovery\t1\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

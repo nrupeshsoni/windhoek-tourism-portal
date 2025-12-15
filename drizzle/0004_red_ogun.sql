@@ -1,0 +1,42 @@
+CREATE TABLE `cnrtp_route_stops` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`routeId` int NOT NULL,
+	`dayNumber` int NOT NULL,
+	`stopOrder` int NOT NULL,
+	`name` varchar(255) NOT NULL,
+	`description` text,
+	`latitude` varchar(50),
+	`longitude` varchar(50),
+	`duration` varchar(100),
+	`activities` text,
+	`tips` text,
+	`image` varchar(1000),
+	`listingId` int,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `cnrtp_route_stops_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `cnrtp_routes` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`name` varchar(255) NOT NULL,
+	`slug` varchar(255) NOT NULL,
+	`description` text,
+	`shortDescription` varchar(500),
+	`duration` int NOT NULL,
+	`difficulty` enum('easy','moderate','challenging') NOT NULL DEFAULT 'moderate',
+	`distance` int,
+	`highlights` text,
+	`bestTimeToVisit` varchar(255),
+	`coverImage` varchar(1000),
+	`mapData` text,
+	`startLocation` varchar(255),
+	`endLocation` varchar(255),
+	`regions` text,
+	`isFeatured` boolean NOT NULL DEFAULT false,
+	`isActive` boolean NOT NULL DEFAULT true,
+	`viewCount` int NOT NULL DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `cnrtp_routes_id` PRIMARY KEY(`id`),
+	CONSTRAINT `cnrtp_routes_slug_unique` UNIQUE(`slug`)
+);

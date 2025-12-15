@@ -1,0 +1,30 @@
+{
+  "query": "SELECT id, name, slug FROM cnrtp_categories WHERE slug LIKE '%lodge%' OR slug LIKE '%camp%' OR slug LIKE '%shuttle%' OR slug LIKE '%activity%' OR slug LIKE '%restaurant%' LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2jtK6pbijCvvy3B.1f9568ca23c1 --database n3qmvwxZjKdWt4fK6B7Gwx --execute SELECT id, name, slug FROM cnrtp_categories WHERE slug LIKE '%lodge%' OR slug LIKE '%camp%' OR slug LIKE '%shuttle%' OR slug LIKE '%activity%' OR slug LIKE '%restaurant%' LIMIT 20;",
+  "rows": [
+    {
+      "id": "2",
+      "name": "Campsites",
+      "slug": "campsites"
+    },
+    {
+      "id": "3",
+      "name": "Shuttles & Transfers",
+      "slug": "shuttles-transfers"
+    },
+    {
+      "id": "5",
+      "name": "Lodges & Hotels",
+      "slug": "lodges-hotels"
+    },
+    {
+      "id": "10",
+      "name": "Restaurants & Dining",
+      "slug": "restaurants-dining"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\n2\tCampsites\tcampsites\n3\tShuttles & Transfers\tshuttles-transfers\n5\tLodges & Hotels\tlodges-hotels\n10\tRestaurants & Dining\trestaurants-dining\n",
+  "stderr": "",
+  "execution_time_ms": 134
+}
