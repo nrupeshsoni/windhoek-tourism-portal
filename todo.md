@@ -1,29 +1,34 @@
 # Windhoek Tourism Portal - TODO
 
-## Initial Setup
-- [x] Clone from Namibia Tourism Portal
-- [x] Create new GitHub repository (windhoek-tourism-portal)
-- [x] Update schema table prefix to windhoek_na_26_
-- [x] Update package.json name
-- [x] Update DEPLOYMENT.md references
-
-## Database Setup
-- [x] Create windhoek_na_26_ tables in Supabase (13 tables created)
-- [x] Copy categories from Namibia database (49 categories)
-- [x] Copy Windhoek/Khomas listings (2,302 businesses)
-
-## Content
-- [x] Research Windhoek tourism categories
-- [x] Research Windhoek attractions and businesses
-- [x] Collect Windhoek images and media (12 images)
-- [x] Create 1-2 day Windhoek routes (8 routes created)
-- [x] Seed routes to database
-
-## Branding
-- [x] Update homepage hero for Windhoek
-- [x] Update site title and metadata
-- [x] Update content sections for Windhoek focus
-
-## Deployment
+## Completed
+- [x] Clone Namibia portal codebase
+- [x] Update schema to windhoek_na_26_ prefix
+- [x] Create Supabase tables
+- [x] Copy Windhoek/Khomas listings from NTB database
+- [x] Create 8 city tours/routes
+- [x] Collect Windhoek images
+- [x] Redesign homepage for Windhoek
 - [x] Push to GitHub
-- [ ] Deploy to Netlify
+
+## Deep Research & Content (Dec 15)
+- [ ] Research all Windhoek attractions and landmarks
+- [ ] Research museums and galleries
+- [ ] Research shopping destinations (malls, markets, craft centres)
+- [ ] Research restaurants and dining options
+- [ ] Research day tours and activities
+- [ ] Research nightlife and entertainment
+- [ ] Research nearby nature reserves and excursions
+- [x] Compile comprehensive content for homepage
+
+## UI/UX Improvements
+- [x] Fix hero WINDHOEK text (bold, drop shadow for readability)
+- [x] Update homepage with researched content
+
+## SEO & Analytics
+- [x] Set up SEO meta tags with Windhoek keywords
+- [x] Add Google Analytics tag (G-1FF3EGHC34 - same as Namibia)
+- [x] Create new favicon for Windhoek (W with African patterns)
+
+## Final Steps
+- [ ] Push final version to GitHub
+- [ ] Verify Netlify deployment

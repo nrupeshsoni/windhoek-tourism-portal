@@ -14,24 +14,24 @@ interface SEOProps {
 
 const DEFAULT_KEYWORDS = [
   // Primary keywords
-  "Namibia tourism",
-  "Namibia travel",
-  "Visit Namibia",
-  "Namibia holidays",
-  "Namibia vacation",
+  "Windhoek tourism",
+  "Windhoek travel",
+  "Visit Windhoek",
+  "Windhoek city guide",
+  "Windhoek Namibia",
   // Destinations
-  "Sossusvlei",
-  "Etosha National Park",
-  "Fish River Canyon",
-  "Skeleton Coast",
-  "Namib Desert",
-  "Deadvlei",
-  "Swakopmund",
+  "Christuskirche Windhoek",
+  "Independence Memorial Museum",
+  "Heroes Acre Windhoek",
+  "Alte Feste",
+  "Parliament Gardens",
+  "National Art Gallery",
+  "Namibia Craft Centre",
   "Windhoek",
-  "Damaraland",
-  "Caprivi Strip",
-  "Kaokoland",
-  "Waterberg Plateau",
+  "Katutura Township",
+  "Daan Viljoen",
+  "Joes Beerhouse",
+  "Hilton Sky Bar",
   // Activities
   "Namibia safari",
   "Namibia wildlife",
@@ -63,7 +63,7 @@ const DEFAULT_KEYWORDS = [
   "Namibia car rental",
   "Namibia shuttle services",
   "Namibia tour guides",
-  "Namibia travel agents",
+  "Windhoek travel agents",
   // Culture
   "Himba people",
   "San Bushmen",
@@ -84,21 +84,21 @@ const DEFAULT_KEYWORDS = [
   "eco-tourism Namibia",
   // AI-optimized keywords
   "best Namibia itinerary",
-  "Namibia travel routes",
+  "Windhoek travel routes",
   "Namibia road trip",
   "Namibia self-drive safari",
   "things to do in Namibia",
   "where to stay in Namibia",
-  "Namibia travel guide 2024",
+  "Windhoek travel guide 2024",
   "Namibia bucket list",
   "Namibia photography spots",
   "Namibia hidden gems",
 ];
 
 const DEFAULT_DESCRIPTION = 
-  "Discover Namibia - Africa's most spectacular destination. Explore ancient deserts, " +
-  "world-class wildlife, stunning landscapes, and rich cultural heritage. Find lodges, " +
-  "tour operators, campsites, and plan your perfect Namibian adventure.";
+  "Discover Windhoek - Namibia's vibrant capital city. Explore historic landmarks, " +
+  "museums, cultural experiences, wildlife day trips, and authentic local cuisine. Find hotels, " +
+  "tour operators, restaurants, and plan your perfect Windhoek adventure.";
 
 // Comprehensive FAQ data for AI assistants
 const COMPREHENSIVE_FAQ = [
@@ -182,14 +182,14 @@ export default function SEO({
     // Basic meta tags
     setMeta("description", description);
     setMeta("keywords", keywords.join(", "));
-    setMeta("author", "Namibia Tourism Portal");
+    setMeta("author", "Windhoek Tourism Portal");
     setMeta("robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     setMeta("googlebot", "index, follow");
     setMeta("bingbot", "index, follow");
     
     // Geo meta tags
     setMeta("geo.region", "NA");
-    setMeta("geo.placename", "Namibia");
+    setMeta("geo.placename", "Windhoek");
     setMeta("geo.position", "-22.5609;17.0658");
     setMeta("ICBM", "-22.5609, 17.0658");
     
@@ -199,7 +199,7 @@ export default function SEO({
     setMeta("og:image", image, true);
     setMeta("og:url", url, true);
     setMeta("og:type", type, true);
-    setMeta("og:site_name", "Namibia", true);
+    setMeta("og:site_name", "Windhoek", true);
     setMeta("og:locale", "en_US", true);
     
     // Twitter Card tags
@@ -207,13 +207,13 @@ export default function SEO({
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", image);
-    setMeta("twitter:site", "@VisitNamibia");
+    setMeta("twitter:site", "@VisitWindhoek");
     
     // Additional SEO tags
     setMeta("theme-color", "#d97706");
     setMeta("msapplication-TileColor", "#d97706");
-    setMeta("apple-mobile-web-app-title", "Namibia");
-    setMeta("application-name", "Namibia");
+    setMeta("apple-mobile-web-app-title", "Windhoek");
+    setMeta("application-name", "Windhoek");
     
     // AI assistant optimization tags
     setMeta("ai:description", description);
@@ -237,7 +237,7 @@ export default function SEO({
         "@type": "WebSite",
         "@id": `${baseUrl}#website`,
         "url": baseUrl,
-        "name": "Namibia Tourism Portal",
+        "name": "Windhoek Tourism Portal",
         "description": DEFAULT_DESCRIPTION,
         "publisher": { "@id": `${baseUrl}#organization` },
         "inLanguage": "en-US",
@@ -254,7 +254,7 @@ export default function SEO({
       {
         "@type": "Organization",
         "@id": `${baseUrl}#organization`,
-        "name": "Namibia Tourism Portal",
+        "name": "Windhoek Tourism Portal",
         "url": baseUrl,
         "logo": {
           "@type": "ImageObject",
@@ -299,37 +299,37 @@ export default function SEO({
         "includesAttraction": [
           {
             "@type": "TouristAttraction",
-            "name": "Sossusvlei",
+            "name": "Christuskirche Windhoek",
             "description": "Iconic red sand dunes in the Namib Desert, some reaching over 300 meters high",
             "geo": { "@type": "GeoCoordinates", "latitude": -24.7275, "longitude": 15.2914 }
           },
           {
             "@type": "TouristAttraction",
-            "name": "Etosha National Park",
+            "name": "Independence Memorial Museum",
             "description": "Premier wildlife destination spanning 22,270 km² with diverse African species including lions, elephants, rhinos, and over 340 bird species",
             "geo": { "@type": "GeoCoordinates", "latitude": -18.8556, "longitude": 16.3293 }
           },
           {
             "@type": "TouristAttraction",
-            "name": "Fish River Canyon",
+            "name": "Heroes Acre Windhoek",
             "description": "Second largest canyon in the world, 160km long and up to 550m deep",
             "geo": { "@type": "GeoCoordinates", "latitude": -27.5833, "longitude": 17.5833 }
           },
           {
             "@type": "TouristAttraction",
-            "name": "Skeleton Coast",
+            "name": "Alte Feste",
             "description": "Dramatic coastline with shipwrecks, seal colonies, and unique desert-meets-ocean landscapes",
             "geo": { "@type": "GeoCoordinates", "latitude": -19.5, "longitude": 12.5 }
           },
           {
             "@type": "TouristAttraction",
-            "name": "Deadvlei",
+            "name": "National Art Gallery",
             "description": "Ancient clay pan with 900-year-old dead camelthorn trees surrounded by towering red dunes",
             "geo": { "@type": "GeoCoordinates", "latitude": -24.7600, "longitude": 15.2928 }
           },
           {
             "@type": "TouristAttraction",
-            "name": "Swakopmund",
+            "name": "Namibia Craft Centre",
             "description": "Coastal adventure town offering sandboarding, quad biking, skydiving, and German colonial architecture",
             "geo": { "@type": "GeoCoordinates", "latitude": -22.6792, "longitude": 14.5265 }
           }
@@ -462,7 +462,7 @@ export function generateRouteStructuredData(route: {
     },
     "provider": {
       "@type": "Organization",
-      "name": "Namibia Tourism Portal",
+      "name": "Windhoek Tourism Portal",
       "url": baseUrl
     }
   };

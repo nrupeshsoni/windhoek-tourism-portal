@@ -21,84 +21,120 @@ const cardAnimations: Variants[] = [
 
 const getRandomAnimation = (index: number) => cardAnimations[index % cardAnimations.length];
 
-// Windhoek Iconic Destinations/Attractions
+// Windhoek Iconic Destinations/Attractions - 12 top attractions
 const ICONIC_DESTINATIONS = [
   { 
     id: 1, 
     name: "Christuskirche", 
     tagline: "HISTORIC", 
     image: "/images/windhoek/christuskirche-museum.jpg",
-    description: "The iconic Lutheran church built in 1910, blending neo-Gothic and Art Nouveau styles."
+    description: "Iconic 1910 Lutheran church in neo-Gothic and Art Nouveau style, built from local sandstone."
   },
   { 
     id: 2, 
     name: "Independence Museum", 
-    tagline: "DISCOVER", 
+    tagline: "FREE ENTRY", 
     image: "/images/windhoek/independence-museum.jpg",
-    description: "Modern museum documenting Namibia's struggle for independence with panoramic city views."
+    description: "North Korea-built museum with panoramic views and the Balcony of Love rooftop bar."
   },
   { 
     id: 3, 
     name: "Heroes' Acre", 
-    tagline: "HONOR AT", 
+    tagline: "MEMORIAL", 
     image: "/images/windhoek/heroes-acre.jpg",
-    description: "Impressive memorial honoring Namibian heroes who fought for independence."
+    description: "Grand memorial honoring Namibian independence heroes with stunning architecture."
   },
   { 
     id: 4, 
     name: "Craft Centre", 
     tagline: "SHOP AT", 
     image: "/images/windhoek/craft-centre.jpg",
-    description: "The best place to find authentic Namibian crafts and souvenirs."
+    description: "Namibia's largest collection of authentic African arts, crafts, and souvenirs."
   },
   { 
     id: 5, 
     name: "Daan Viljoen", 
-    tagline: "ESCAPE TO", 
+    tagline: "WILDLIFE", 
     image: "/images/windhoek/daan-viljoen.jpg",
-    description: "Highland savanna reserve just 20km from the city for hiking and wildlife."
+    description: "Nature reserve 20 min from city with zebra, kudu, oryx and 200+ bird species."
   },
   { 
     id: 6, 
     name: "Joe's Beerhouse", 
-    tagline: "DINE AT", 
+    tagline: "LEGENDARY", 
     image: "/images/windhoek/joes-beerhouse.jpg",
-    description: "Legendary restaurant famous for game meat and eclectic African decor."
+    description: "Famous restaurant for game meat steaks in eclectic African-German atmosphere."
   },
   { 
     id: 7, 
-    name: "Katutura", 
-    tagline: "EXPERIENCE", 
+    name: "Katutura Township", 
+    tagline: "AUTHENTIC", 
     image: "/images/windhoek/katutura-township.jpg",
-    description: "Vibrant township offering authentic cultural experiences and local cuisine."
+    description: "Experience real Namibian life, kapana BBQ, and vibrant local markets."
   },
   { 
     id: 8, 
     name: "Parliament Gardens", 
-    tagline: "RELAX AT", 
+    tagline: "HISTORIC", 
     image: "/images/windhoek/parliament-gardens.jpg",
-    description: "Beautiful gardens surrounding the historic Tintenpalast parliament building."
+    description: "Beautiful gardens at the Tintenpalast with statues of independence heroes."
+  },
+  { 
+    id: 9, 
+    name: "Alte Feste", 
+    tagline: "OLDEST", 
+    image: "/images/windhoek/christuskirche-museum.jpg",
+    description: "Windhoek's oldest building (1890), former German fort and national museum."
+  },
+  { 
+    id: 10, 
+    name: "National Art Gallery", 
+    tagline: "CULTURE", 
+    image: "/images/windhoek/craft-centre-interior.jpg",
+    description: "State-owned gallery preserving and showcasing Namibian contemporary art."
+  },
+  { 
+    id: 11, 
+    name: "Naankuse Sanctuary", 
+    tagline: "WILDLIFE", 
+    image: "/images/windhoek/daan-viljoen-lodge.jpg",
+    description: "Celebrity-backed sanctuary with cheetah walks and carnivore feeding tours."
+  },
+  { 
+    id: 12, 
+    name: "Hilton Sky Bar", 
+    tagline: "SUNSET", 
+    image: "/images/windhoek/skyline-sunset.jpg",
+    description: "Rooftop bar with panoramic city views, pool access, and stunning sunsets."
   },
 ];
 
-// Experience Categories
+// Experience Categories - 12 categories for comprehensive coverage
 const CATEGORY_TILES = [
-  { id: 1, slug: "hotels", name: "HOTELS", tagline: "STAY AT", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80", description: "Comfortable hotels and lodges in Windhoek." },
-  { id: 2, slug: "restaurants-dining", name: "DINING", tagline: "TASTE", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80", description: "From game meat to international cuisine." },
-  { id: 3, slug: "tour-operators", name: "TOURS", tagline: "GUIDED", image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80", description: "Expert guides for city and nature tours." },
-  { id: 4, slug: "guest-houses", name: "GUEST HOUSES", tagline: "COZY", image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80", description: "Charming guest houses with local character." },
+  { id: 1, slug: "hotels", name: "HOTELS", tagline: "STAY AT", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80", description: "From luxury hotels to boutique stays." },
+  { id: 2, slug: "restaurants-dining", name: "DINING", tagline: "TASTE", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80", description: "Game meat, kapana BBQ, and international cuisine." },
+  { id: 3, slug: "tour-operators", name: "CITY TOURS", tagline: "GUIDED", image: "/images/windhoek/katutura-township.jpg", description: "Walking tours, township tours, and day trips." },
+  { id: 4, slug: "guest-houses", name: "GUEST HOUSES", tagline: "COZY", image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80", description: "Charming B&Bs with local hospitality." },
   { id: 5, slug: "car-hire", name: "CAR HIRE", tagline: "DRIVE", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80", description: "Reliable vehicles for city exploration." },
-  { id: 6, slug: "cultural-experiences", name: "CULTURE", tagline: "EXPERIENCE", image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80", description: "Connect with Windhoek's diverse heritage." },
-  { id: 7, slug: "shopping", name: "SHOPPING", tagline: "BROWSE", image: "/images/windhoek/craft-centre-interior.jpg", description: "Craft markets and modern malls." },
-  { id: 8, slug: "nightlife", name: "NIGHTLIFE", tagline: "ENJOY", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80", description: "Bars, clubs, and entertainment venues." },
+  { id: 6, slug: "museums", name: "MUSEUMS", tagline: "DISCOVER", image: "/images/windhoek/independence-museum.jpg", description: "History, art, and cultural exhibitions." },
+  { id: 7, slug: "shopping", name: "SHOPPING", tagline: "BROWSE", image: "/images/windhoek/craft-centre-interior.jpg", description: "Craft markets, malls, and souvenirs." },
+  { id: 8, slug: "nightlife", name: "NIGHTLIFE", tagline: "ENJOY", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80", description: "Brewer's Market, rooftop bars, casinos." },
+  { id: 9, slug: "wildlife", name: "WILDLIFE", tagline: "SAFARI", image: "/images/windhoek/daan-viljoen.jpg", description: "Game drives and wildlife sanctuaries." },
+  { id: 10, slug: "spa-wellness", name: "WELLNESS", tagline: "RELAX", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80", description: "Spas and wellness retreats." },
+  { id: 11, slug: "cafes", name: "CAFES", tagline: "COFFEE", image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80", description: "Hip coffee shops and bakeries." },
+  { id: 12, slug: "activities", name: "ACTIVITIES", tagline: "ADVENTURE", image: "/images/windhoek/heroes-acre.jpg", description: "Hiking, giraffe lunches, and more." },
 ];
 
-// Route/Tour tiles
+// Route/Tour tiles - 8 curated city tours
 const ROUTE_TILES = [
-  { days: 1, name: "CITY WALK", tagline: "HERITAGE", image: "/images/windhoek/christuskirche-museum.jpg" },
-  { days: 1, name: "TOWNSHIP", tagline: "CULTURAL", image: "/images/windhoek/katutura-township.jpg" },
-  { days: 1, name: "NATURE", tagline: "DAY TRIP", image: "/images/windhoek/daan-viljoen.jpg" },
-  { days: 2, name: "WEEKEND", tagline: "COMPLETE", image: "/images/windhoek/city-aerial.jpeg" },
+  { days: 1, name: "HERITAGE WALK", tagline: "HISTORIC", image: "/images/windhoek/christuskirche-museum.jpg", description: "Christuskirche, Independence Museum, Alte Feste, Parliament" },
+  { days: 1, name: "KATUTURA TOUR", tagline: "CULTURAL", image: "/images/windhoek/katutura-township.jpg", description: "Township life, kapana BBQ, Oshetu Market, local crafts" },
+  { days: 1, name: "DAAN VILJOEN", tagline: "WILDLIFE", image: "/images/windhoek/daan-viljoen.jpg", description: "Game drive, hiking trails, 200+ bird species" },
+  { days: 1, name: "CRAFT & CUISINE", tagline: "FOODIE", image: "/images/windhoek/craft-centre.jpg", description: "Craft Centre, Joe's Beerhouse, local markets" },
+  { days: 1, name: "MUSEUMS DAY", tagline: "DISCOVER", image: "/images/windhoek/independence-museum.jpg", description: "Independence Museum, National Art Gallery, Owela Museum" },
+  { days: 1, name: "SUNSET TOUR", tagline: "EVENING", image: "/images/windhoek/skyline-sunset.jpg", description: "Hilton Sky Bar, city lights, rooftop cocktails" },
+  { days: 1, name: "NAANKUSE SAFARI", tagline: "WILDLIFE", image: "/images/windhoek/daan-viljoen-lodge.jpg", description: "Cheetah walk, carnivore feeding, wildlife sanctuary" },
+  { days: 2, name: "WEEKEND EXPLORER", tagline: "COMPLETE", image: "/images/windhoek/city-aerial.jpeg", description: "Full city experience with nature and culture" },
 ];
 
 export default function Home() {
@@ -248,8 +284,8 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-6xl md:text-8xl lg:text-9xl text-white tracking-[0.3em] font-light mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', 'Times New Roman', serif" }}
+            className="text-6xl md:text-8xl lg:text-9xl text-white tracking-[0.3em] font-bold mb-6"
+            style={{ fontFamily: "'Cormorant Garamond', 'Times New Roman', serif", textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.6)' }}
           >
             WINDHOEK
           </motion.h1>
