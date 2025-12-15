@@ -25,5 +25,5 @@
 - [x] Update content sections for Windhoek focus
 
 ## Deployment
-- [ ] Push to GitHub
+- [x] Push to GitHub
 - [ ] Deploy to Netlify

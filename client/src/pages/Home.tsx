@@ -1,423 +1,539 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { motion, AnimatePresence } from "framer-motion";
-import { toast } from "sonner";
-import { ChevronDown, MapPin, Clock, Users, Star, ArrowRight, Calendar, Camera, Utensils, Building, TreePine } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { ChevronDown, MessageCircle, Map, Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import SEO from "@/components/SEO";
 
-// Windhoek attractions data
-const WINDHOEK_ATTRACTIONS = [
-  {
-    id: 1,
-    name: "Christuskirche",
-    category: "Historic Landmark",
-    image: "/images/windhoek/christuskirche-museum.jpg",
-    description: "The iconic Lutheran church built in 1910, blending neo-Gothic and Art Nouveau styles. A symbol of Windhoek.",
-    icon: Building
-  },
-  {
-    id: 2,
-    name: "Independence Memorial Museum",
-    category: "Museum",
-    image: "/images/windhoek/independence-museum.jpg",
-    description: "Modern museum documenting Namibia's struggle for independence, offering panoramic city views.",
-    icon: Building
-  },
-  {
-    id: 3,
-    name: "Heroes' Acre",
-    category: "Memorial",
-    image: "/images/windhoek/heroes-acre.jpg",
-    description: "Impressive memorial honoring Namibian heroes who fought for independence, with the Unknown Soldier statue.",
-    icon: Star
-  },
-  {
-    id: 4,
-    name: "Namibia Craft Centre",
-    category: "Shopping & Culture",
-    image: "/images/windhoek/craft-centre.jpg",
-    description: "The best place to find authentic Namibian crafts, art, and souvenirs in the historic Old Breweries.",
-    icon: Camera
-  },
-  {
-    id: 5,
-    name: "Daan Viljoen Nature Reserve",
-    category: "Nature & Wildlife",
-    image: "/images/windhoek/daan-viljoen.jpg",
-    description: "Just 20km from the city, this highland savanna reserve offers hiking, game viewing, and birdwatching.",
-    icon: TreePine
-  },
-  {
-    id: 6,
-    name: "Joe's Beerhouse",
-    category: "Dining",
-    image: "/images/windhoek/joes-beerhouse.jpg",
-    description: "Legendary restaurant famous for game meat, craft beer, and its eclectic African decor.",
-    icon: Utensils
-  }
+// Random animation variants for cards
+const cardAnimations: Variants[] = [
+  { hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } },
+  { hidden: { opacity: 0, y: -50 }, visible: { opacity: 1, y: 0 } },
+  { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0 } },
+  { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0 } },
+  { hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } },
+  { hidden: { opacity: 0, rotate: -10, scale: 0.9 }, visible: { opacity: 1, rotate: 0, scale: 1 } },
+  { hidden: { opacity: 0, filter: "blur(10px)" }, visible: { opacity: 1, filter: "blur(0px)" } },
+  { hidden: { opacity: 0, x: -30, y: 30 }, visible: { opacity: 1, x: 0, y: 0 } }
 ];
 
-// Featured experiences
-const EXPERIENCES = [
-  { title: "City Walking Tours", count: "12+ tours", icon: MapPin },
-  { title: "Township Experiences", count: "8+ tours", icon: Users },
-  { title: "Nature Day Trips", count: "6+ trips", icon: TreePine },
-  { title: "Culinary Adventures", count: "10+ experiences", icon: Utensils }
+const getRandomAnimation = (index: number) => cardAnimations[index % cardAnimations.length];
+
+// Windhoek Iconic Destinations/Attractions
+const ICONIC_DESTINATIONS = [
+  { 
+    id: 1, 
+    name: "Christuskirche", 
+    tagline: "HISTORIC", 
+    image: "/images/windhoek/christuskirche-museum.jpg",
+    description: "The iconic Lutheran church built in 1910, blending neo-Gothic and Art Nouveau styles."
+  },
+  { 
+    id: 2, 
+    name: "Independence Museum", 
+    tagline: "DISCOVER", 
+    image: "/images/windhoek/independence-museum.jpg",
+    description: "Modern museum documenting Namibia's struggle for independence with panoramic city views."
+  },
+  { 
+    id: 3, 
+    name: "Heroes' Acre", 
+    tagline: "HONOR AT", 
+    image: "/images/windhoek/heroes-acre.jpg",
+    description: "Impressive memorial honoring Namibian heroes who fought for independence."
+  },
+  { 
+    id: 4, 
+    name: "Craft Centre", 
+    tagline: "SHOP AT", 
+    image: "/images/windhoek/craft-centre.jpg",
+    description: "The best place to find authentic Namibian crafts and souvenirs."
+  },
+  { 
+    id: 5, 
+    name: "Daan Viljoen", 
+    tagline: "ESCAPE TO", 
+    image: "/images/windhoek/daan-viljoen.jpg",
+    description: "Highland savanna reserve just 20km from the city for hiking and wildlife."
+  },
+  { 
+    id: 6, 
+    name: "Joe's Beerhouse", 
+    tagline: "DINE AT", 
+    image: "/images/windhoek/joes-beerhouse.jpg",
+    description: "Legendary restaurant famous for game meat and eclectic African decor."
+  },
+  { 
+    id: 7, 
+    name: "Katutura", 
+    tagline: "EXPERIENCE", 
+    image: "/images/windhoek/katutura-township.jpg",
+    description: "Vibrant township offering authentic cultural experiences and local cuisine."
+  },
+  { 
+    id: 8, 
+    name: "Parliament Gardens", 
+    tagline: "RELAX AT", 
+    image: "/images/windhoek/parliament-gardens.jpg",
+    description: "Beautiful gardens surrounding the historic Tintenpalast parliament building."
+  },
+];
+
+// Experience Categories
+const CATEGORY_TILES = [
+  { id: 1, slug: "hotels", name: "HOTELS", tagline: "STAY AT", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80", description: "Comfortable hotels and lodges in Windhoek." },
+  { id: 2, slug: "restaurants-dining", name: "DINING", tagline: "TASTE", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80", description: "From game meat to international cuisine." },
+  { id: 3, slug: "tour-operators", name: "TOURS", tagline: "GUIDED", image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80", description: "Expert guides for city and nature tours." },
+  { id: 4, slug: "guest-houses", name: "GUEST HOUSES", tagline: "COZY", image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80", description: "Charming guest houses with local character." },
+  { id: 5, slug: "car-hire", name: "CAR HIRE", tagline: "DRIVE", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80", description: "Reliable vehicles for city exploration." },
+  { id: 6, slug: "cultural-experiences", name: "CULTURE", tagline: "EXPERIENCE", image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80", description: "Connect with Windhoek's diverse heritage." },
+  { id: 7, slug: "shopping", name: "SHOPPING", tagline: "BROWSE", image: "/images/windhoek/craft-centre-interior.jpg", description: "Craft markets and modern malls." },
+  { id: 8, slug: "nightlife", name: "NIGHTLIFE", tagline: "ENJOY", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80", description: "Bars, clubs, and entertainment venues." },
+];
+
+// Route/Tour tiles
+const ROUTE_TILES = [
+  { days: 1, name: "CITY WALK", tagline: "HERITAGE", image: "/images/windhoek/christuskirche-museum.jpg" },
+  { days: 1, name: "TOWNSHIP", tagline: "CULTURAL", image: "/images/windhoek/katutura-township.jpg" },
+  { days: 1, name: "NATURE", tagline: "DAY TRIP", image: "/images/windhoek/daan-viljoen.jpg" },
+  { days: 2, name: "WEEKEND", tagline: "COMPLETE", image: "/images/windhoek/city-aerial.jpeg" },
 ];
 
 export default function Home() {
-  const [activeAttraction, setActiveAttraction] = useState(0);
-  
-  // Fetch routes from database
-  const { data: routes, isLoading: routesLoading } = trpc.routes.list.useQuery({
-    limit: 6,
-    featured: true
-  });
+  const [showMenu, setShowMenu] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [scrollY, setScrollY] = useState(0);
 
-  // Auto-rotate attractions
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveAttraction((prev) => (prev + 1) % WINDHOEK_ATTRACTIONS.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      window.location.href = `/explore?search=${encodeURIComponent(searchQuery)}`;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-stone-50">
+    <>
       <SEO 
-        title="Windhoek Tourism Portal - Discover Namibia's Capital"
-        description="Explore Windhoek, the vibrant capital of Namibia. Discover city tours, cultural experiences, nature escapes, and the best of what Windhoek has to offer."
+        title="Windhoek - Discover Namibia's Capital City"
+        description="Explore Windhoek's rich history, vibrant culture, and stunning attractions. Plan your perfect city experience with curated tours, restaurants, and more."
       />
 
-      {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/windhoek/city-aerial.jpeg"
-            alt="Windhoek City Aerial View"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      {/* Fixed Header - Minimal */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrollY > 100 ? 'bg-black/90' : ''}`}>
+        <div className="container flex items-center justify-between h-16 md:h-20">
+          <button 
+            onClick={() => setShowSearch(!showSearch)}
+            className="w-10 h-10 flex items-center justify-center text-white hover:bg-white/10 rounded-full transition-colors"
+          >
+            <Search className="w-5 h-5" />
+          </button>
+
+          {scrollY > 100 ? (
+            <Link href="/" className="block">
+              <span className="text-white text-xl md:text-2xl font-light" style={{ fontFamily: "Georgia, serif", letterSpacing: "0.15em" }}>WINDHOEK</span>
+            </Link>
+          ) : (
+            <div className="w-24 md:w-32" />
+          )}
+
+          <button 
+            onClick={() => setShowMenu(!showMenu)}
+            className="w-10 h-10 flex items-center justify-center text-white hover:bg-white/10 rounded-full transition-colors"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
         </div>
 
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
-          <motion.div
+        {/* Search Overlay */}
+        <AnimatePresence>
+          {showSearch && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md p-4"
+            >
+              <form onSubmit={handleSearch} className="container">
+                <div className="relative">
+                  <Input
+                    type="text"
+                    placeholder="Search attractions, restaurants, tours..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 pr-12"
+                    autoFocus
+                  />
+                  <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white">
+                    <Search className="w-5 h-5" />
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Menu Overlay */}
+        <AnimatePresence>
+          {showMenu && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/95 backdrop-blur-md z-50"
+            >
+              <div className="container h-full flex flex-col">
+                <div className="flex items-center justify-between h-16 md:h-20">
+                  <div />
+                  <div />
+                  <button 
+                    onClick={() => setShowMenu(false)}
+                    className="w-10 h-10 flex items-center justify-center text-white hover:bg-white/10 rounded-full transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                
+                <nav className="flex-1 flex flex-col items-center justify-center gap-8">
+                  {[
+                    { href: "/", label: "Home" },
+                    { href: "/routes", label: "City Tours" },
+                    { href: "/categories", label: "Categories" },
+                    { href: "/explore", label: "Directory" },
+                    { href: "/trip-planner", label: "Plan Trip" },
+                  ].map((item) => (
+                    <Link key={item.href} href={item.href} onClick={() => setShowMenu(false)}>
+                      <span className="font-display text-3xl md:text-4xl text-white hover:text-amber-400 transition-colors tracking-wider">
+                        {item.label.toUpperCase()}
+                      </span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <img 
+          src="/images/windhoek/city-aerial.jpeg"
+          alt="Windhoek City Aerial View"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-stone-900/40 animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-white/80 text-lg md:text-xl tracking-[0.5em] uppercase mb-4"
+          >
+            Welcome to
+          </motion.p>
+          
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            transition={{ delay: 0.5 }}
+            className="text-6xl md:text-8xl lg:text-9xl text-white tracking-[0.3em] font-light mb-6"
+            style={{ fontFamily: "'Cormorant Garamond', 'Times New Roman', serif" }}
           >
-            <p className="text-amber-400 text-sm md:text-base font-medium tracking-widest mb-4">
-              WELCOME TO NAMIBIA'S CAPITAL
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
-              WINDHOEK
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Where German heritage meets African soul. Discover city tours, cultural experiences, and nature escapes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/routes">
-                <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8">
-                  Explore City Tours
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/directory">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-                  Browse Directory
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+            WINDHOEK
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="text-white/90 text-xl md:text-2xl font-light max-w-2xl mb-12"
+          >
+            The heart of Namibia, where history meets modern African spirit
+          </motion.p>
 
-          {/* Scroll indicator */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute bottom-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4"
           >
-            <ChevronDown className="h-8 w-8 text-white animate-bounce" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Quick Stats */}
-      <section className="bg-amber-500 py-6">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="text-black">
-              <p className="text-3xl md:text-4xl font-bold">2,300+</p>
-              <p className="text-sm font-medium">Businesses Listed</p>
-            </div>
-            <div className="text-black">
-              <p className="text-3xl md:text-4xl font-bold">8</p>
-              <p className="text-sm font-medium">Curated Routes</p>
-            </div>
-            <div className="text-black">
-              <p className="text-3xl md:text-4xl font-bold">49</p>
-              <p className="text-sm font-medium">Categories</p>
-            </div>
-            <div className="text-black">
-              <p className="text-3xl md:text-4xl font-bold">1,700m</p>
-              <p className="text-sm font-medium">Altitude</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Top Attractions */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <p className="text-amber-600 font-medium tracking-widest mb-2">MUST-SEE</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
-              Top Windhoek Attractions
-            </h2>
-            <p className="text-stone-600 max-w-2xl mx-auto">
-              From historic landmarks to vibrant markets, discover what makes Windhoek unique.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {WINDHOEK_ATTRACTIONS.map((attraction, index) => {
-              const IconComponent = attraction.icon;
-              return (
-                <motion.div
-                  key={attraction.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={attraction.image}
-                        alt={attraction.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                        <span className="text-xs font-medium text-stone-700 flex items-center gap-1">
-                          <IconComponent className="h-3 w-3" />
-                          {attraction.category}
-                        </span>
-                      </div>
-                    </div>
-                    <CardContent className="p-5">
-                      <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-amber-600 transition-colors">
-                        {attraction.name}
-                      </h3>
-                      <p className="text-stone-600 text-sm">
-                        {attraction.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* City Tours / Routes */}
-      <section className="py-16 md:py-24 bg-stone-100">
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-            <div>
-              <p className="text-amber-600 font-medium tracking-widest mb-2">EXPLORE</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
-                Windhoek City Tours
-              </h2>
-              <p className="text-stone-600 max-w-xl">
-                Curated 1-2 day itineraries to help you discover the best of Windhoek.
-              </p>
-            </div>
             <Link href="/routes">
-              <Button variant="outline" className="mt-4 md:mt-0">
-                View All Tours <ArrowRight className="ml-2 h-4 w-4" />
+              <Button size="lg" className="bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-black transition-all px-8 py-6 text-lg">
+                <Map className="w-5 h-5 mr-2" />
+                Explore City Tours
               </Button>
             </Link>
-          </div>
+            <Link href="/explore">
+              <Button 
+                size="lg" 
+                className="bg-amber-500/90 backdrop-blur-md text-black hover:bg-amber-400 transition-all px-8 py-6 text-lg"
+              >
+                Browse Directory
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
 
-          {routesLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-xl h-80 animate-pulse" />
-              ))}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="flex flex-col items-center text-white/70"
+          >
+            <span className="text-sm tracking-widest mb-2">SCROLL</span>
+            <ChevronDown className="w-6 h-6" />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Iconic Attractions Grid */}
+      <section className="grid grid-cols-2 md:grid-cols-4">
+        {ICONIC_DESTINATIONS.map((dest, index) => (
+          <motion.div
+            key={dest.id}
+            variants={getRandomAnimation(index)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+            whileHover={{ scale: 1.02 }}
+            className="relative aspect-square group cursor-pointer overflow-hidden"
+          >
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{ backgroundImage: `url(${dest.image})` }}
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
+            <div className="absolute inset-0 p-6 flex flex-col justify-end">
+              <p className="text-white/80 text-sm tracking-widest uppercase">
+                {dest.tagline}
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl text-white font-bold tracking-wide">
+                {dest.name.toUpperCase()}
+              </h3>
             </div>
-          ) : routes && routes.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {routes.slice(0, 6).map((route, index) => (
-                <motion.div
-                  key={route.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Link href={`/routes/${route.slug}`}>
-                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={route.coverImage || "/images/windhoek/skyline-sunset.jpg"}
-                          alt={route.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full">
-                          <span className="text-xs font-bold">{route.duration} Day{route.duration > 1 ? 's' : ''}</span>
-                        </div>
-                      </div>
-                      <CardContent className="p-5">
-                        <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-amber-600 transition-colors">
-                          {route.name}
-                        </h3>
-                        <p className="text-stone-600 text-sm mb-4 line-clamp-2">
-                          {route.shortDescription}
-                        </p>
-                        <div className="flex items-center gap-4 text-xs text-stone-500">
-                          <span className="flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {route.duration} day{route.duration > 1 ? 's' : ''}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />
-                            {route.distance}km
-                          </span>
-                          <span className="capitalize px-2 py-0.5 bg-stone-100 rounded">
-                            {route.difficulty}
-                          </span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12 text-stone-500">
-              No tours available yet. Check back soon!
-            </div>
-          )}
+          </motion.div>
+        ))}
+      </section>
+
+      {/* Experiences Section */}
+      <section className="relative">
+        <div 
+          className="relative h-[40vh] flex items-center justify-center bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(/images/windhoek/skyline-sunset.jpg)` }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative text-center">
+            <p className="text-white/70 text-lg tracking-[0.5em] uppercase mb-2">Discover</p>
+            <h2 className="font-display text-5xl md:text-7xl text-white tracking-wider">EXPERIENCES</h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {CATEGORY_TILES.map((cat, index) => (
+            <Link key={cat.slug} href={`/categories/${cat.slug}`}>
+              <motion.div
+                variants={getRandomAnimation(index + 3)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
+                className="relative aspect-[4/3] group cursor-pointer overflow-hidden"
+              >
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${cat.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+                <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-start">
+                  <p className="text-white/70 text-xs md:text-sm tracking-widest uppercase">
+                    {cat.tagline}
+                  </p>
+                  <h3 className="font-display text-lg md:text-2xl text-white font-bold tracking-wide">
+                    {cat.name}
+                  </h3>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Experiences Grid */}
-      <section className="py-16 md:py-24 bg-stone-900 text-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <p className="text-amber-400 font-medium tracking-widest mb-2">EXPERIENCES</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What to Do in Windhoek
-            </h2>
+      {/* City Tours Section */}
+      <section className="relative">
+        <div 
+          className="relative h-[40vh] flex items-center justify-center bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(/images/windhoek/heroes-acre.jpg)` }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative text-center">
+            <p className="text-white/70 text-lg tracking-[0.5em] uppercase mb-2">Explore</p>
+            <h2 className="font-display text-5xl md:text-7xl text-white tracking-wider">CITY TOURS</h2>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {EXPERIENCES.map((exp, index) => {
-              const IconComponent = exp.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-stone-800 rounded-xl p-6 text-center hover:bg-stone-700 transition-colors cursor-pointer"
-                >
-                  <IconComponent className="h-10 w-10 text-amber-400 mx-auto mb-4" />
-                  <h3 className="font-bold mb-1">{exp.title}</h3>
-                  <p className="text-sm text-stone-400">{exp.count}</p>
-                </motion.div>
-              );
-            })}
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {ROUTE_TILES.map((route, index) => (
+            <Link key={index} href={`/routes?duration=${route.days}`} onClick={() => window.scrollTo(0, 0)}>
+              <motion.div
+                variants={getRandomAnimation(index + 5)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
+                className="relative aspect-[3/4] group cursor-pointer overflow-hidden"
+              >
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${route.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                  <div>
+                    <p className="text-white/70 text-sm tracking-widest uppercase">
+                      {route.tagline}
+                    </p>
+                    <h3 className="font-display text-2xl md:text-3xl text-white font-bold tracking-wide">
+                      {route.name}
+                    </h3>
+                  </div>
+                  <div className="text-white/90">
+                    <span className="text-4xl font-display font-bold">{route.days}</span>
+                    <span className="text-lg ml-1">{route.days === 1 ? 'Day' : 'Days'}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* About Windhoek Section */}
+      <section className="py-24 bg-gradient-to-b from-stone-900 to-stone-950">
+        <div className="container">
+          <div className="text-center mb-16">
+            <p className="text-amber-500 tracking-[0.3em] uppercase text-sm mb-4">About</p>
+            <h2 className="font-display text-4xl md:text-5xl text-white tracking-wider mb-6">WINDHOEK</h2>
+            <p className="text-white/60 max-w-3xl mx-auto text-lg">
+              Nestled in the Khomas Highland at 1,700 meters, Windhoek is Namibia's capital and largest city. 
+              With a population of around 450,000, it's a vibrant blend of colonial architecture and modern African culture. 
+              The city serves as the gateway to Namibia's spectacular wilderness areas.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="bg-white/5 rounded-lg p-6">
+              <p className="text-4xl font-bold text-amber-500 mb-2">1,700m</p>
+              <p className="text-white/60 text-sm">Altitude</p>
+            </div>
+            <div className="bg-white/5 rounded-lg p-6">
+              <p className="text-4xl font-bold text-amber-500 mb-2">450K</p>
+              <p className="text-white/60 text-sm">Population</p>
+            </div>
+            <div className="bg-white/5 rounded-lg p-6">
+              <p className="text-4xl font-bold text-amber-500 mb-2">1890</p>
+              <p className="text-white/60 text-sm">Founded</p>
+            </div>
+            <div className="bg-white/5 rounded-lg p-6">
+              <p className="text-4xl font-bold text-amber-500 mb-2">300+</p>
+              <p className="text-white/60 text-sm">Sunny Days</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Windhoek */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-amber-600 font-medium tracking-widest mb-2">ABOUT</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-                Discover Windhoek
-              </h2>
-              <div className="space-y-4 text-stone-600">
-                <p>
-                  Nestled in the Khomas Highland at 1,700 meters, Windhoek is Namibia's capital and largest city. 
-                  With a population of around 450,000, it's a vibrant blend of German colonial heritage and modern African culture.
-                </p>
-                <p>
-                  The city's name comes from the Afrikaans word for "windy corner," though the climate is actually 
-                  quite pleasant year-round with warm days and cool nights.
-                </p>
-                <p>
-                  From the iconic Christuskirche to the bustling Katutura township, from craft markets to game reserves 
-                  just minutes away, Windhoek offers a unique gateway to experiencing Namibia.
-                </p>
-              </div>
-              <div className="mt-8 flex gap-4">
-                <Link href="/directory">
-                  <Button className="bg-amber-500 hover:bg-amber-600 text-black">
-                    Explore Directory
-                  </Button>
-                </Link>
-                <Link href="/routes">
-                  <Button variant="outline">
-                    View Tours
-                  </Button>
-                </Link>
-              </div>
+      {/* Wildlife Section */}
+      <section className="relative">
+        <div className="grid md:grid-cols-2">
+          <div 
+            className="relative h-[60vh] bg-cover bg-center"
+            style={{ backgroundImage: `url(/images/windhoek/daan-viljoen-lodge.jpg)` }}
+          >
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+          <div className="bg-stone-900 p-8 md:p-16 flex flex-col justify-center">
+            <p className="text-amber-500 tracking-[0.3em] uppercase text-sm mb-4">Nature</p>
+            <h2 className="font-display text-3xl md:text-4xl text-white tracking-wider mb-6">WILDLIFE NEARBY</h2>
+            <p className="text-white/70 mb-8">
+              Just 20 minutes from the city center, Daan Viljoen Nature Reserve offers hiking trails, 
+              game viewing of zebra, kudu, oryx, and over 200 bird species. The perfect escape from urban life.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Zebra</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Kudu</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Oryx</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">200+ Bird Species</span>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img
-                src="/images/windhoek/parliament-gardens.jpg"
-                alt="Parliament Gardens"
-                className="rounded-xl w-full h-48 object-cover"
-              />
-              <img
-                src="/images/windhoek/skyline-sunset.jpg"
-                alt="Windhoek Sunset"
-                className="rounded-xl w-full h-48 object-cover mt-8"
-              />
-              <img
-                src="/images/windhoek/katutura-township.jpg"
-                alt="Katutura Township"
-                className="rounded-xl w-full h-48 object-cover"
-              />
-              <img
-                src="/images/windhoek/craft-centre-interior.jpg"
-                alt="Craft Centre"
-                className="rounded-xl w-full h-48 object-cover mt-8"
-              />
+          </div>
+        </div>
+      </section>
+
+      {/* Culture Section */}
+      <section className="relative">
+        <div className="grid md:grid-cols-2">
+          <div className="bg-stone-900 p-8 md:p-16 flex flex-col justify-center order-2 md:order-1">
+            <p className="text-amber-500 tracking-[0.3em] uppercase text-sm mb-4">Culture</p>
+            <h2 className="font-display text-3xl md:text-4xl text-white tracking-wider mb-6">KATUTURA TOWNSHIP</h2>
+            <p className="text-white/70 mb-8">
+              Experience authentic Namibian culture in Katutura township. Sample kapana (street BBQ), 
+              visit local markets, and connect with the warm community that makes Windhoek truly special.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Kapana BBQ</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Local Markets</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Township Tours</span>
+              <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">Community Projects</span>
             </div>
+          </div>
+          <div 
+            className="relative h-[60vh] bg-cover bg-center order-1 md:order-2"
+            style={{ backgroundImage: `url(/images/windhoek/katutura-township.jpg)` }}
+          >
+            <div className="absolute inset-0 bg-black/30" />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-amber-500">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            Ready to Explore Windhoek?
+      <section 
+        className="relative h-[50vh] flex items-center justify-center bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(/images/windhoek/parliament-gardens.jpg)` }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative text-center px-4">
+          <h2 className="font-display text-4xl md:text-5xl text-white tracking-wider mb-6">
+            READY TO EXPLORE?
           </h2>
-          <p className="text-black/80 max-w-2xl mx-auto mb-8">
-            Browse our directory of 2,300+ businesses, discover curated city tours, 
-            and plan your perfect Windhoek experience.
+          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+            Browse our directory of 2,300+ businesses, discover curated city tours, and plan your perfect Windhoek experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/directory">
-              <Button size="lg" className="bg-black hover:bg-stone-800 text-white">
+            <Link href="/explore">
+              <Button size="lg" className="bg-amber-500 hover:bg-amber-400 text-black px-8 py-6 text-lg">
                 Browse Directory
               </Button>
             </Link>
             <Link href="/trip-planner">
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black/10">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-6 text-lg">
                 Plan Your Trip
               </Button>
             </Link>
@@ -426,44 +542,51 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-white py-12">
+      <footer className="bg-black py-16">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="text-center mb-12">
+            <h3 className="font-display text-3xl text-white tracking-[0.3em] mb-4">WINDHOEK</h3>
+            <p className="text-white/50">Namibia's Capital City</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             <div>
-              <h3 className="text-xl font-bold mb-4">Windhoek.NA</h3>
-              <p className="text-stone-400 text-sm">
-                Your guide to discovering Namibia's capital city. Explore tours, attractions, and local businesses.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Explore</h4>
-              <ul className="space-y-2 text-stone-400 text-sm">
+              <h4 className="text-white font-semibold mb-4">Explore</h4>
+              <ul className="space-y-2 text-white/50">
                 <li><Link href="/routes" className="hover:text-white transition-colors">City Tours</Link></li>
-                <li><Link href="/directory" className="hover:text-white transition-colors">Directory</Link></li>
+                <li><Link href="/categories" className="hover:text-white transition-colors">Categories</Link></li>
+                <li><Link href="/explore" className="hover:text-white transition-colors">Directory</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Categories</h4>
+              <ul className="space-y-2 text-white/50">
+                <li><Link href="/categories/hotels" className="hover:text-white transition-colors">Hotels</Link></li>
+                <li><Link href="/categories/restaurants-dining" className="hover:text-white transition-colors">Restaurants</Link></li>
+                <li><Link href="/categories/tour-operators" className="hover:text-white transition-colors">Tour Operators</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Plan</h4>
+              <ul className="space-y-2 text-white/50">
                 <li><Link href="/trip-planner" className="hover:text-white transition-colors">Trip Planner</Link></li>
+                <li><Link href="/routes" className="hover:text-white transition-colors">Itineraries</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Categories</h4>
-              <ul className="space-y-2 text-stone-400 text-sm">
-                <li><Link href="/directory?category=hotels" className="hover:text-white transition-colors">Hotels</Link></li>
-                <li><Link href="/directory?category=restaurants-dining" className="hover:text-white transition-colors">Restaurants</Link></li>
-                <li><Link href="/directory?category=tour-operators" className="hover:text-white transition-colors">Tour Operators</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-stone-400 text-sm">
+              <h4 className="text-white font-semibold mb-4">Contact</h4>
+              <p className="text-white/50 text-sm">
                 Windhoek, Namibia<br />
                 info@windhoek.na
               </p>
             </div>
           </div>
-          <div className="border-t border-stone-800 mt-8 pt-8 text-center text-stone-500 text-sm">
+          
+          <div className="border-t border-white/10 pt-8 text-center text-white/30 text-sm">
             © {new Date().getFullYear()} Windhoek Tourism Portal. All rights reserved.
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
